@@ -1,0 +1,5 @@
+# Schema for the configuration files of the gme theme.
+
+gme.settings:
+  type: theme_settings
+  label: 'gme settings'

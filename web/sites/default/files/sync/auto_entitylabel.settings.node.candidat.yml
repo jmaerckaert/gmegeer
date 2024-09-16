@@ -1,0 +1,10 @@
+status: 1
+pattern: '[node:field_candidate_number] [node:field_candidate_firstname] [node:field_candidate_lastname]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.candidat
+new_content_behavior: 0

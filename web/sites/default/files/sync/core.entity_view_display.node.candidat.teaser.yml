@@ -1,0 +1,88 @@
+uuid: 7c39d79d-73bc-4252-8b14-d957af547bcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.candidat.field_candidate_age
+    - field.field.node.candidat.field_candidate_firstname
+    - field.field.node.candidat.field_candidate_formation
+    - field.field.node.candidat.field_candidate_job
+    - field.field.node.candidat.field_candidate_lastname
+    - field.field.node.candidat.field_candidate_number
+    - field.field.node.candidat.field_candidate_photo
+    - field.field.node.candidat.field_candidate_presentation
+    - node.type.candidat
+  module:
+    - layout_builder
+    - layout_discovery
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          109258fb-6559-48c0-89a8-eeae352c24af:
+            uuid: 109258fb-6559-48c0-89a8-eeae352c24af
+            region: content
+            configuration:
+              id: 'field_block:node:candidat:field_candidate_photo'
+              label: Photo
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          10e875d9-0046-4635-8b33-cbd006ae33e4:
+            uuid: 10e875d9-0046-4635-8b33-cbd006ae33e4
+            region: content
+            configuration:
+              id: 'field_block:node:candidat:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.candidat.teaser
+targetEntityType: node
+bundle: candidat
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_candidate_age: true
+  field_candidate_firstname: true
+  field_candidate_formation: true
+  field_candidate_job: true
+  field_candidate_lastname: true
+  field_candidate_number: true
+  field_candidate_photo: true
+  field_candidate_presentation: true

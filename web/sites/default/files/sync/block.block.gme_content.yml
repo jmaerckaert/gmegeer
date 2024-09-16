@@ -1,0 +1,22 @@
+uuid: 2d6b928f-0bae-493f-98a5-80e25bf1d71c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gme
+_core:
+  default_config_hash: loCQGPe-NBquipZKbgayyhkGtbvKdWlnB-zIp3ilFvc
+id: gme_content
+theme: gme
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

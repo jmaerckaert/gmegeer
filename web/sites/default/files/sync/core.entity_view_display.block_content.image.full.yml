@@ -1,0 +1,29 @@
+uuid: f7e54fff-46c3-4fdd-b21a-768174e972d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.image.field_image_block
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: block_content.image.full
+targetEntityType: block_content
+bundle: image
+mode: full
+content:
+  field_image_block:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

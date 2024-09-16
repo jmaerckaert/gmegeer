@@ -1,0 +1,22 @@
+uuid: 1fa03f7f-9564-4383-842d-6ddcbe8f727d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gme
+_core:
+  default_config_hash: v2TDyKwZwtD1njQYIjaEKLVGWQinO3y1FHkYEd95HxU
+id: gme_breadcrumbs
+theme: gme
+region: header
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

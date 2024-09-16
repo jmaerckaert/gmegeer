@@ -1,0 +1,90 @@
+uuid: b1395d14-70d5-4f1a-a2c5-77a90c7a6bc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.front.body
+    - node.type.front
+  content:
+    - 'block_content:image:dcba9878-d4f4-44cd-b79d-04975b5a28dc'
+  module:
+    - block_content
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'Photo groupe'
+          context_mapping: {  }
+        components:
+          188b1173-dde9-4199-9b2e-ede5f5129f3e:
+            uuid: 188b1173-dde9-4199-9b2e-ede5f5129f3e
+            region: content
+            configuration:
+              id: 'block_content:dcba9878-d4f4-44cd-b79d-04975b5a28dc'
+              label: 'Image Group'
+              label_display: '0'
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          872bda8b-1048-49a6-bcdc-6cf9a1bfc14f:
+            uuid: 872bda8b-1048-49a6-bcdc-6cf9a1bfc14f
+            region: content
+            configuration:
+              id: 'extra_field_block:node:front:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+          c7b4fab0-6d70-4954-aa5f-6fde5d721d96:
+            uuid: c7b4fab0-6d70-4954-aa5f-6fde5d721d96
+            region: content
+            configuration:
+              id: 'field_block:node:front:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.front.default
+targetEntityType: node
+bundle: front
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

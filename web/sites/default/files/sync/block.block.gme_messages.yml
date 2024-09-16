@@ -1,0 +1,22 @@
+uuid: f1cc1cde-d646-4a07-aaee-1b78405b0296
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gme
+_core:
+  default_config_hash: b4Si2aWPkTxXU69a2IAyvY2VgEX4nFyLb9ThoqKX-m4
+id: gme_messages
+theme: gme
+region: header
+weight: -3
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }
