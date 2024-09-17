@@ -12,6 +12,7 @@ dependencies:
 'interface translation project': gme
 'interface translation server pattern': themes/custom/gme/translations/%language.po
 regions:
+  above_navigation: 'Above Navigation'
   navbar_branding: 'Navbar branding'
   navbar_left: 'Navbar left'
   navbar_right: 'Navbar right'

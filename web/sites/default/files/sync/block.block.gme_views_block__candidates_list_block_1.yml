@@ -1,0 +1,29 @@
+uuid: f3ad4dfd-cae0-40f7-b82c-91d036210354
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.candidates_list
+  module:
+    - system
+    - views
+  theme:
+    - gme
+id: gme_views_block__candidates_list_block_1
+theme: gme
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:candidates_list-block_1'
+settings:
+  id: 'views_block:candidates_list-block_1'
+  label: 'Nos candidats'
+  label_display: visible
+  provider: views
+  views_label: 'Nos candidats'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -5,9 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
-    - field.field.node.article.comment
+    - field.field.node.article.field_auteur
+    - field.field.node.article.field_copyright
+    - field.field.node.article.field_date_publication
     - field.field.node.article.field_image
+    - field.field.node.article.field_lien_article
     - field.field.node.article.field_tags
+    - field.field.node.article.field_weight
     - image.style.medium
     - node.type.article
   module:
@@ -52,4 +56,9 @@ content:
     weight: 100
     region: content
 hidden:
-  comment: true
+  field_auteur: true
+  field_copyright: true
+  field_date_publication: true
+  field_lien_article: true
+  field_weight: true
+  langcode: true

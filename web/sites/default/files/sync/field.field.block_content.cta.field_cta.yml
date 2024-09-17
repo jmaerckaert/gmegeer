@@ -1,0 +1,19 @@
+uuid: ea12e398-b1f6-41cd-919f-f7f930c71b20
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.block_content.field_cta
+id: block_content.cta.field_cta
+field_name: field_cta
+entity_type: block_content
+bundle: cta
+label: cta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

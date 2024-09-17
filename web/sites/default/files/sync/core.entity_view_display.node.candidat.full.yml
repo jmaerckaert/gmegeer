@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.candidat.field_candidate_number
     - field.field.node.candidat.field_candidate_photo
     - field.field.node.candidat.field_candidate_presentation
+    - field.field.node.candidat.field_weight
     - node.type.candidat
     - views.view.candidate_photo_block
   module:
@@ -197,4 +198,6 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_weight: true
+  langcode: true

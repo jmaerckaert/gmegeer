@@ -1,0 +1,30 @@
+uuid: 1a16e287-fabd-4c0e-96fb-a9fdfca9398a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cta:52836674-42fe-481f-965b-4f5dc9035eeb'
+  module:
+    - block_content
+    - system
+  theme:
+    - gme
+id: gme_ctaprogramme
+theme: gme
+region: content
+weight: -3
+provider: null
+plugin: 'block_content:52836674-42fe-481f-965b-4f5dc9035eeb'
+settings:
+  id: 'block_content:52836674-42fe-481f-965b-4f5dc9035eeb'
+  label: 'cta programme'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

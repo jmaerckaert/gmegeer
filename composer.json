@@ -16,19 +16,26 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.5",
         "drupal/auto_entitylabel": "^3.3",
+        "drupal/cookies": "^1.2",
         "drupal/core-composer-scaffold": "^11.0",
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
+        "drupal/google_analytics": "^4.0",
         "drupal/radix": "6.0.0-rc4",
+        "drupal/recaptcha": "^3.4",
         "drupal/token": "^1.15",
-        "drush/drush": "^13.0"
+        "drupal/twig_tweak": "^3.4",
+        "drupal/weight": "^3.4",
+        "drush/drush": "^13.0",
+        "mglaman/composer-drupal-lenient": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
@@ -37,7 +44,9 @@
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "cweagans/composer-patches": true,
+            "mglaman/composer-drupal-lenient": true
         },
         "sort-packages": true
     },
@@ -96,6 +105,18 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/weight": {
+                "#3435703 : Automated Drupal 11 compatibility fixes for weight": "https://www.drupal.org/files/issues/2024-03-25/weight.8.x-3.4.rector.patch"
+            },
+            "drupal/google_analytics": {
+                "#3430780 : Automated Drupal 11 compatibility fixes for google_analytics": "https://www.drupal.org/files/issues/2024-08-29/google_analytics-test.patch"
+            }
+        },
+        "drupal-lenient": {
+            "allowed-list": ["drupal/weight", "drupal/google_analytics"]
         }
     }
 }

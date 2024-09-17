@@ -11,6 +11,8 @@
 @import "base/typography";
 @import "bootswatch";
 
+@import "components/page-navigation/page-navigation";
+
 .field--label-inline .field__label {
   margin-right: 10px; /* Ajustez la valeur selon vos besoins */
 }

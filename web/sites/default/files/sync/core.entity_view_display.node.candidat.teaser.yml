@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.candidat.field_candidate_number
     - field.field.node.candidat.field_candidate_photo
     - field.field.node.candidat.field_candidate_presentation
+    - field.field.node.candidat.field_weight
     - node.type.candidat
   module:
     - layout_builder
@@ -86,3 +87,5 @@ hidden:
   field_candidate_number: true
   field_candidate_photo: true
   field_candidate_presentation: true
+  field_weight: true
+  langcode: true
