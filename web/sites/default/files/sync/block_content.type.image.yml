@@ -1,8 +1,0 @@
-uuid: ae4f2360-59ea-4d5e-9033-af6dbd383afd
-langcode: en
-status: true
-dependencies: {  }
-id: image
-label: Image
-revision: false
-description: 'A simple block containing an image.'

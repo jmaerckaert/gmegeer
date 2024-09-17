@@ -48,7 +48,8 @@
             "cweagans/composer-patches": true,
             "mglaman/composer-drupal-lenient": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform-check": false
     },
     "extra": {
         "drupal-scaffold": {
