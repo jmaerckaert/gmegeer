@@ -1,5 +1,8 @@
 {
     "/build/js/main.script.js": "/build/js/main.script.js",
     "/build/css/main.style.css": "/build/css/main.style.css",
-    "/components/page-navigation/page-navigation.css": "/components/page-navigation/page-navigation.css"
+    "/components/page/page.css": "/components/page/page.css",
+    "/components/page-navigation/page-navigation.css": "/components/page-navigation/page-navigation.css",
+    "/components/navbar/navbar.css": "/components/navbar/navbar.css",
+    "/components/navbar-brand/navbar-brand.css": "/components/navbar-brand/navbar-brand.css"
 }

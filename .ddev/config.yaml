@@ -15,6 +15,7 @@ web_environment: []
 nodejs_version: auto
 corepack_enable: true
 default_container_timeout: "240"
+webimage_extra_packages: [ ruby-full, rubygems, build-essential ]
 
 # Key features of DDEV's config.yaml:
 

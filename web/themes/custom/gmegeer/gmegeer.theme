@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * gmegeer theme file.
+ */
+
+use Drupal\bootstrap5\SettingsManager;
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function gmegeer_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Obtenir le service theme.manager.
+  $theme_manager = \Drupal::service('theme.manager');
+
+  // Créer une instance de SettingsManager avec le service theme_manager.
+  $settings_manager = new SettingsManager($theme_manager);
+
+  // Appeler la méthode themeSettingsAlter sur l'instance.
+  $settings_manager->themeSettingsAlter($form, $form_state, 'gmegeer');
+
+  // Ajouter l'option 'blue' pour la couleur de fond de la navbar.
+  $form['nav_details']['b5_navbar_bg_schema']['#options']['blue'] = t('Blue');
+
+  // Ajouter la description pour la nouvelle option.
+  $form['nav_details']['b5_navbar_bg_schema']['#description'] .= ' ' . t('Blue: Facebook blue background.');
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function gmegeer_preprocess_page(array &$variables) {
+  // Vérifiez si le type de contenu est 'front'.
+  if (isset($variables['node']) && $variables['node']->getType() === 'front') {
+    // Supprimez le titre de la page.
+    unset($variables['page']['#title']);
+  }
+}

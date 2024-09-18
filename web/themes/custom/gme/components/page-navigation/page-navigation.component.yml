@@ -6,6 +6,9 @@ props:
   type: object
   properties: {}
 slots:
+  above_navigation:
+    title: Above Navigation
+    description: 'The region above the main navigation.'
   branding:
     title: Branding
     description: 'The branding section of the navigation.'
