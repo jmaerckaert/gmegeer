@@ -12828,6 +12828,7 @@ code {
 
 .node--type-front .block-block-content.cta-programme .text-formatted.field a {
   display: inline-block;
+  font-size: 30px;
 }
 
 body {
@@ -12837,13 +12838,22 @@ body {
   line-height: 28px;
 }
 
-.view-candidates-list .views-field-title a {
+.views-field-field-lien-article {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.view-candidates-list .views-field-title a,
+.views-field-view-node a,
+.field--name-field-lien-article a {
   color: #007BFF;
   text-decoration: none;
   position: relative; /* Nécessaire pour positionner l'effet */
 }
 
-.view-candidates-list .views-field-title a::after {
+.view-candidates-list .views-field-title a::after,
+.views-field-view-node a::after,
+.field--name-field-lien-article a::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -12856,9 +12866,26 @@ body {
   transition: transform 0.3s ease;
 }
 
-.view-candidates-list .views-field-title a:hover::after {
+.view-candidates-list .views-field-title a:hover::after,
+.views-field-view-node a:hover::after,
+.field--name-field-lien-article a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.field--name-field-copyright {
+  font-size: 12px; /* Taille de police plus petite */
+  color: #6c757d; /* Gris plus clair */
+}
+
+.field--name-field-auteur,
+.field--name-field-date-publication {
+  font-size: 14px; /* Taille de police légèrement plus petite */
+  color: #555; /* Couleur grise pour discrétion */
+  font-weight: 400; /* Poids de police normal */
+  background-color: #f9f9f9; /* Légère couleur de fond pour le faire ressortir */
+  padding: 0; /* Ajouter un peu de padding pour l'espacement */
+  border-radius: 3px; /* Coins légèrement arrondis */
 }
 
 .navbar {
@@ -12885,12 +12912,14 @@ main {
   margin-top: 0;
 }
 
-.view-candidates-list .view-content {
+.view-candidates-list .view-content,
+.view-articles .view-content {
   display: flex;
   flex-wrap: wrap;
 }
 
-.view-candidates-list .view-content .views-row {
+.view-candidates-list .view-content .views-row,
+.view-articles .view-content .views-row {
   flex: 1 1 auto;
   margin-right: 10px; /* Espacement entre les éléments */
   max-width: 415px;
@@ -12898,6 +12927,14 @@ main {
 
 .view-candidates-list .views-row {
   margin-bottom: 20px;
+}
+
+.view-articles .views-field-title {
+  min-height: 112px;
+}
+
+.view-articles .views-field-field-image {
+  min-height: 235px;
 }
 
 @media (max-width: 575.98px) {
