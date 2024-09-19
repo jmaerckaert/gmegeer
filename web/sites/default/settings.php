@@ -89,7 +89,18 @@
  * @endcode
  */
 $databases = [];
+$databases['default']['default'] = [
+   'database' => 'gmegeer',
+   'username' => 'admin',
+   'password' => 'omVaD46)xT',
+   'host' => 'localhost',
+   'port' => '3306',
+   'driver' => 'mysql',
+   'prefix' => '',
+   'collation' => 'utf8mb4_general_ci',
+ ];
 
+$config['system.logging']['error_level'] = 'verbose';
 /**
  * Customizing database settings.
  *
@@ -265,8 +276,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
-
+$settings['hash_salt'] = 'a66d93a7976497e4c0ef0f06e03bcd94416ce8841cb6016a044c9201053b6996';
 /**
  * Deployment identifier.
  *
@@ -590,7 +600,7 @@ $settings['update_free_access'] = FALSE;
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+ $settings['file_private_path'] = $app_root . '/../private';
 
 /**
  * Temporary file path:
