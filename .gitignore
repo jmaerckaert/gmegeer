@@ -6,10 +6,13 @@ web/*
 web/sites/*
 !web/sites/default
 web/sites/default/*
+web/sites/default/files
+web/sites/default/settings.php
+web/sites/default/settings.local.php
+web/sites/default/*.settings.php
 !web/sites/default/config
 web/sites/default/config/environment/*
 web/sites/default/config/dev/*
-!web/sites/default/settings.php
 !web/themes
 web/themes/*
 !web/themes/custom
