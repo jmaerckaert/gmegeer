@@ -11947,6 +11947,15 @@ a > .ck-content code {
 .ck-content .view-articles .views-field-field-image {
   min-height: 235px;
 }
+.ck-content footer .region-footer {
+  display: flex;
+  flex-direction: inherit;
+  justify-content: space-between;
+}
+.ck-content footer .region-footer #block-gmegeer-footer,
+.ck-content footer .region-footer #block-gmegeer-contact {
+  width: 48%;
+}
 @media (max-width: 575.98px) {
   .ck-content .navbar-brand img {
     height: 15px;

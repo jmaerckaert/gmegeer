@@ -148,6 +148,19 @@ main {
   min-height: 235px;
 }
 
+footer .region-footer {
+  display: flex;
+  flex-direction: inherit;
+  justify-content: space-between;
+}
+
+footer .region-footer #block-gmegeer-footer {
+  
+}
+footer .region-footer #block-gmegeer-contact {
+  width: 48%;
+}
+
 // Media queries for different screen sizes
 @media (max-width: 575.98px) { // Mobile
   .navbar-brand img {

@@ -8,8 +8,8 @@ dependencies:
     - gmegeer
 id: gmegeer_cookiesui
 theme: gmegeer
-region: footer
-weight: 0
+region: content
+weight: 1
 provider: null
 plugin: cookies_ui_block
 settings:

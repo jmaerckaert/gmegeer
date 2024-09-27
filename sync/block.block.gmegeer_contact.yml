@@ -1,0 +1,25 @@
+uuid: 0c748c0d-87a8-4ea9-bc51-6c1d5b86759d
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:94fd63df-d247-4561-b820-39f47d09af46'
+  module:
+    - block_content
+  theme:
+    - gmegeer
+id: gmegeer_contact
+theme: gmegeer
+region: footer
+weight: -4
+provider: null
+plugin: 'block_content:94fd63df-d247-4561-b820-39f47d09af46'
+settings:
+  id: 'block_content:94fd63df-d247-4561-b820-39f47d09af46'
+  label: Contact
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -34,6 +34,7 @@ settings:
       - codeBlock
       - '|'
       - sourceEditing
+      - bootstrapIcons
   plugins:
     ckeditor5_codeBlock:
       languages:
@@ -95,6 +96,8 @@ settings:
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags: {  }
+    menu_bootstrap_icon_plugins:
+      cdn_bootstrap: true
 image_upload:
   status: true
   scheme: public
