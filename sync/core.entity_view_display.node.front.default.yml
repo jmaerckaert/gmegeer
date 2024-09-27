@@ -1,0 +1,39 @@
+uuid: b1395d14-70d5-4f1a-a2c5-77a90c7a6bc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.front.body
+    - node.type.front
+  content:
+    - 'block_content:basic:d242759c-5f07-473b-803a-f57142d1f590'
+    - 'block_content:image:dcba9878-d4f4-44cd-b79d-04975b5a28dc'
+  module:
+    - block_content
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.front.default
+targetEntityType: node
+bundle: front
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

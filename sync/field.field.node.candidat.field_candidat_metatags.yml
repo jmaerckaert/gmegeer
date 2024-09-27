@@ -1,0 +1,21 @@
+uuid: dcf02a47-6bcd-4ba7-9d90-a80e89946c82
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_candidat_metatags
+    - node.type.candidat
+  module:
+    - metatag
+id: node.candidat.field_candidat_metatags
+field_name: field_candidat_metatags
+entity_type: node
+bundle: candidat
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

@@ -1,0 +1,21 @@
+uuid: b45127d5-6fd5-4244-8057-463108f76158
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_candidat_village
+    - node.type.candidat
+  module:
+    - options
+id: node.candidat.field_candidat_village
+field_name: field_candidat_village
+entity_type: node
+bundle: candidat
+label: Village
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

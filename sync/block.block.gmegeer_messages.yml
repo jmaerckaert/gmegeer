@@ -1,0 +1,22 @@
+uuid: 7e0e622a-8b25-4b04-8529-704c25e4eb2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: vGHqTXDLOiQUzE-LdXm2ZwZIL49vRfJIIpkhtty8tiw
+id: gmegeer_messages
+theme: gmegeer
+region: content
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

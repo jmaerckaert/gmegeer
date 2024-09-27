@@ -1,0 +1,23 @@
+uuid: 9cebf9fa-1de5-4e4a-b89e-f17db0da97c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_candidate_number
+    - node.type.candidat
+id: node.candidat.field_candidate_number
+field_name: field_candidate_number
+entity_type: node
+bundle: candidat
+label: Numéro
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,20 @@
+uuid: 152cff5c-af76-4efb-852a-9cf6871dca93
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: 44bafC_2WqEFPdhGBqXr2mP8h83h1QxYOopBQL-a5DY
+id: gmegeer_local_actions
+theme: gmegeer
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: "Actions d'administration principales"
+  label_display: '0'
+  provider: core
+visibility: {  }

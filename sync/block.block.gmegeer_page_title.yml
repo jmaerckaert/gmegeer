@@ -1,0 +1,20 @@
+uuid: f4245de6-0dc8-4923-b15f-d67f472ff001
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: IisH4dmwhIGHq3vWVwTzfuA_Kdjm0wlaF3zNSXr9dSY
+id: gmegeer_page_title
+theme: gmegeer
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Titre de la page'
+  label_display: '0'
+  provider: core
+visibility: {  }

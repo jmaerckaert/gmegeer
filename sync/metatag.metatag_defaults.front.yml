@@ -1,0 +1,43 @@
+uuid: f0eda71b-93f8-4e86-b135-4d39553bf74a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  abstract: "Geer est à un tournant décisif. La liste 'Geerons Mieux Ensemble' s'engage à agir avec transparence, innovation et démocratie participative pour moderniser les infrastructures, renforcer la sécurité, et impliquer les citoyens dans les décisions importantes. Ensemble, construisons une commune plus sûre et prospère."
+  article_author: 'Jonathan Maerckaert'
+  canonical_url: '[site:url]'
+  dcterms_creator: 'Jonathan Maerckaert'
+  dcterms_description: "Geer est à un tournant décisif. La liste 'Geerons Mieux Ensemble' s'engage à agir avec transparence, innovation et démocratie participative pour moderniser les infrastructures, renforcer la sécurité, et impliquer les citoyens dans les décisions importantes. Ensemble, construisons une commune plus sûre et prospère."
+  dcterms_subject: Political
+  dcterms_title: 'GME - Geerons Ensemble'
+  description: "Geer est à un tournant décisif. La liste 'Geerons Mieux Ensemble' s'engage à agir avec transparence, innovation et démocratie participative pour moderniser les infrastructures, renforcer la sécurité, et impliquer les citoyens dans les décisions importantes. Ensemble, construisons une commune plus sûre et prospère."
+  'hreflang_per_language:hreflang_en': /en
+  hreflang_xdefault: fr
+  image_src: /sites/default/files/styles/max_1300x1300/public/2024-09/geerons-mieux-ensemble-gme-candidats.png.webp
+  keywords: Politique;commune;geer
+  og_country_name: Belgique
+  og_description: "Geer est à un tournant décisif. La liste 'Geerons Mieux Ensemble' s'engage à agir avec transparence, innovation et démocratie participative pour moderniser les infrastructures, renforcer la sécurité, et impliquer les citoyens dans les décisions importantes. Ensemble, construisons une commune plus sûre et prospère."
+  og_email: jmaerckaert@gmail.com
+  og_image: /sites/default/files/styles/max_1300x1300/public/2024-09/geerons-mieux-ensemble-gme-candidats.png.webp
+  og_image_alt: 'GME - Geerons Mieux Ensemble - photo de groupe'
+  og_image_secure_url: 'hhtps://gmegeer.be/sites/default/files/styles/max_1300x1300/public/2024-09/geerons-mieux-ensemble-gme-candidats.png.webp'
+  og_image_type: image/webp
+  og_locality: Geer
+  og_phone_number: '+32475722884'
+  og_postal_code: '4250'
+  og_region: Liège
+  og_site_name: 'GME - Geerons Mieux Ensemble'
+  og_title: 'GME - Geerons Mieux Ensemble'
+  og_type: Politique
+  og_url: 'https://gmegeer.be'
+  shortlink: '[site:url]'
+  title: 'GME - Geerons Mieux Ensemble'
+  twitter_cards_description: "Geer est à un tournant décisif. La liste 'Geerons Mieux Ensemble' s'engage à agir avec transparence, innovation et démocratie participative pour moderniser les infrastructures, renforcer la sécurité, et impliquer les citoyens dans les décisions importantes. Ensemble, construisons une commune plus sûre et prospère."
+  twitter_cards_image: /sites/default/files/styles/max_1300x1300/public/2024-09/geerons-mieux-ensemble-gme-candidats.png.webp
+  twitter_cards_image_alt: 'GME - Geerons Mieux Ensemble - photo de groupe'
+  twitter_cards_title: 'GME - Geerons Mieux Ensemble'
+  twitter_cards_type: summary_large_image

@@ -1,0 +1,25 @@
+uuid: 177d3887-cc72-4d70-a2f6-7b49b2a48516
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: z2XOSjWhtR8HtF1ZZSjt63aC-xtJ3xMjCsbC9bxqxDE
+id: gmegeer_branding
+theme: gmegeer
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Identité du site'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 64ef6f0e-8edb-4a83-9149-56a4d067f464
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_date_publication
+field_name: field_date_publication
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+default_langcode: fr
+bannerText: "Nous utilisons une sélection de nos propres cookies ainsi que des cookies tiers sur les pages de ce site web : des cookies essentiels, qui sont nécessaires pour utiliser le site web ; des cookies fonctionnels, qui améliorent la facilité d'utilisation du site web ; des cookies de performance, que nous utilisons pour générer des données agrégées sur l'utilisation du site et des statistiques ; et des cookies marketing, utilisés pour afficher du contenu et des publicités pertinents. Si vous choisissez « TOUT ACCEPTER », vous consentez à l'utilisation de tous les cookies. Vous pouvez accepter ou refuser les différents types de cookies et révoquer votre consentement à tout moment dans les « Paramètres »."
+privacyPolicy: 'Politique de confidentialité'
+cookieDocs: 'Documentation sur les cookies'
+officialWebsite: 'Site officiel'
+denyAll: 'Tout refuser'
+settings: 'Paramètres de cookie'
+acceptAll: 'Tout accepter'
+cookieSettings: 'Paramètres de cookie'
+close: Fermer
+readMore: 'Lire la suite'
+allowed: Autorisé
+denied: Refusé
+alwaysActive: 'Toujours actif'
+settingsAllServices: 'Paramètres pour tous les services'
+saveSettings: Enregistrer
+disclaimerText: 'Toutes les informations relatives aux cookies peuvent être modifiées par les prestataires de services. Nous mettons régulièrement à jour ces informations.'
+processorDetailsLabel: "Détails de l'entreprise de traitement"
+processorLabel: Société
+processorPrivacyPolicyUrlLabel: "Site web de l'entreprise"
+processorCookiePolicyUrlLabel: "Politique de confidentialité de l'entreprise"
+processorContactLabel: 'Coordonnées du contact pour la protection des données'
+placeholderAcceptAllText: 'Accepter tous les cookies'

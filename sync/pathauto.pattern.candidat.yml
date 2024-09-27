@@ -1,0 +1,22 @@
+uuid: b1328c9f-d39d-441f-b0c3-b5d9a37713bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: candidat
+label: Candidat
+type: 'canonical_entities:node'
+pattern: 'candidat/[node:field_candidate_firstname]-[node:field_candidate_lastname]'
+selection_criteria:
+  d2257f31-e7b6-454c-a51f-bf662eb2202d:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: d2257f31-e7b6-454c-a51f-bf662eb2202d
+    context_mapping:
+      node: node
+    bundles:
+      candidat: candidat
+selection_logic: and
+weight: -5
+relationships: {  }

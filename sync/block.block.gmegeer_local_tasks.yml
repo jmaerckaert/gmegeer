@@ -1,0 +1,22 @@
+uuid: 041e245a-63d5-471e-a64b-793c14f4b5a8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: HeWqIB9rfnW0eOYtTkLKkKu9Ccq5_IqcFV4rIJ_XVag
+id: gmegeer_local_tasks
+theme: gmegeer
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Onglets
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

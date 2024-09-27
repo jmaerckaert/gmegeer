@@ -1,0 +1,15 @@
+uuid: 45d528e6-cd64-4a1b-8fe4-51868bd4977f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  canonical_url: '[current-page:url]'
+  icon_16x16: /themes/custom/gmegeer/favicons/favicon-16x16.png
+  icon_192x192: /themes/custom/gmegeer/favicons/android-chrome-192x192.png
+  icon_32x32: /themes/custom/gmegeer/favicons/favicon-32x32.png
+  shortcut_icon: /themes/custom/gmegeer/favicons/favicon.ico
+  title: '[current-page:title] | [site:name]'

@@ -1,0 +1,11 @@
+uuid: 3fda89ca-2303-4ff6-8b06-a11db73991c5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.candidat
+id: node.candidat
+target_entity_type_id: node
+target_bundle: candidat
+default_langcode: site_default
+language_alterable: true

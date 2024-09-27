@@ -1,0 +1,22 @@
+uuid: dc530672-ddd8-4615-8825-ac7819d9fe88
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: kdbfOR9VqHAzuH2IYJxjUuvXmYZzzcdcEXIH8yLXgxk
+id: gmegeer_help
+theme: gmegeer
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Aide
+  label_display: '0'
+  provider: help
+visibility: {  }

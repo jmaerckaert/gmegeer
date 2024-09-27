@@ -1,0 +1,24 @@
+uuid: c79093e6-5765-4afa-ae00-0fac0a35eb5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.front
+  module:
+    - text
+id: node.front.body
+field_name: body
+entity_type: node
+bundle: front
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

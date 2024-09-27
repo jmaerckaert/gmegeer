@@ -1,0 +1,27 @@
+uuid: 6582f88d-3cfe-4ae2-b9ac-0a1e46626b81
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - gmegeer
+_core:
+  default_config_hash: D2W8v52irFtG61Z1w3U8xunVXohggw0fVxflOzXfPyA
+id: gmegeer_main_navigation
+theme: gmegeer
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Navigation principale'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

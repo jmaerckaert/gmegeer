@@ -33,7 +33,7 @@
         "drupal/token": "^1.15",
         "drupal/twig_tweak": "^3.4",
         "drupal/weight": "^3.4",
-        "drush/drush": "^13.0",
+        "drush/drush": "^13.2",
         "mglaman/composer-drupal-lenient": "^1.0",
         "neilime/php-css-lint": "^3.2"
     },

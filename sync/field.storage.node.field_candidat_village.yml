@@ -1,0 +1,42 @@
+uuid: a3de92ba-4006-4c7f-81d5-6a1c82c7a693
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_candidat_village
+field_name: field_candidat_village
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: geer
+      label: Geer
+    -
+      value: ligney
+      label: Ligney
+    -
+      value: darion
+      label: Darion
+    -
+      value: lens_st_servais
+      label: 'Lens st Servais'
+    -
+      value: boelhe
+      label: Boëlhe
+    -
+      value: hollogne_sur_geer
+      label: Hollogne-sur-Geer
+    -
+      value: omal
+      label: Omal
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

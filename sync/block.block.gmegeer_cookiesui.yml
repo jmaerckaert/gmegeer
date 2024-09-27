@@ -1,0 +1,20 @@
+uuid: da1c4973-b3d3-47b5-8e7b-01e202b289f4
+langcode: fr
+status: true
+dependencies:
+  module:
+    - cookies
+  theme:
+    - gmegeer
+id: gmegeer_cookiesui
+theme: gmegeer
+region: footer
+weight: 0
+provider: null
+plugin: cookies_ui_block
+settings:
+  id: cookies_ui_block
+  label: 'Cookies UI'
+  label_display: '0'
+  provider: cookies
+visibility: {  }

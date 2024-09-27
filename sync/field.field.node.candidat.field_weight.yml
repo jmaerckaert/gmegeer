@@ -1,0 +1,22 @@
+uuid: e2b90f79-cdef-41fc-8867-3dd3429b3734
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.candidat
+  module:
+    - weight
+id: node.candidat.field_weight
+field_name: field_weight
+entity_type: node
+bundle: candidat
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight
