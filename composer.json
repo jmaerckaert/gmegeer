@@ -26,10 +26,12 @@
         "drupal/core-recommended": "^11.0",
         "drupal/google_analytics": "^4.0",
         "drupal/layout_builder_component_attributes": "^2.2",
+        "drupal/menu_bootstrap_icon": "^1.0",
         "drupal/metatag": "^2.0",
         "drupal/pathauto": "^1.13",
         "drupal/radix": "6.0.0-rc4",
         "drupal/recaptcha": "^3.4",
+        "drupal/simple_sitemap": "^4.2",
         "drupal/token": "^1.15",
         "drupal/twig_tweak": "^3.4",
         "drupal/weight": "^3.4",
@@ -114,15 +116,12 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/weight": {
-                "#3435703 : Automated Drupal 11 compatibility fixes for weight": "https://www.drupal.org/files/issues/2024-03-25/weight.8.x-3.4.rector.patch"
-            },
             "drupal/google_analytics": {
                 "#3430780 : Automated Drupal 11 compatibility fixes for google_analytics": "https://www.drupal.org/files/issues/2024-08-29/google_analytics-test.patch"
             }
         },
         "drupal-lenient": {
-            "allowed-list": ["drupal/weight", "drupal/google_analytics"]
+            "allowed-list": ["drupal/google_analytics"]
         }
     }
 }

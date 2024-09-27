@@ -1,5 +1,5 @@
 uuid: c5733682-40ca-4103-afd0-38cfb6565be4
-langcode: en
+langcode: fr
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: media.audio.field_media_audio_file
 field_name: field_media_audio_file
 entity_type: media
 bundle: audio
-label: 'Audio file'
+label: 'Fichier audio'
 description: ''
 required: true
 translatable: true

@@ -1,11 +1,11 @@
 uuid: f0eda71b-93f8-4e86-b135-4d39553bf74a
-langcode: en
+langcode: fr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
 id: front
-label: 'Front page'
+label: "Page d'accueil"
 tags:
   abstract: "Geer est à un tournant décisif. La liste 'Geerons Mieux Ensemble' s'engage à agir avec transparence, innovation et démocratie participative pour moderniser les infrastructures, renforcer la sécurité, et impliquer les citoyens dans les décisions importantes. Ensemble, construisons une commune plus sûre et prospère."
   article_author: 'Jonathan Maerckaert'

@@ -1,0 +1,5 @@
+label: reCAPTCHA
+placeholderMainText: 'This content is blocked because reCAPTCHA cookies have not been accepted.'
+placeholderAcceptText: 'Only accept reCAPTCHA cookies'
+processorUrl: 'https://developers.google.com/recaptcha'
+processorPrivacyPolicyUrl: 'https://policies.google.com/privacy'

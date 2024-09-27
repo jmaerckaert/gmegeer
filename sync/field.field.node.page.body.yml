@@ -1,5 +1,5 @@
 uuid: fe6d9dde-2e89-49e3-a294-4dae4866ea62
-langcode: en
+langcode: fr
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: node.page.body
 field_name: body
 entity_type: node
 bundle: page
-label: Body
+label: Corps
 description: ''
 required: false
 translatable: true

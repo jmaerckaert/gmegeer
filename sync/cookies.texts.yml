@@ -1,33 +1,33 @@
 _core:
   default_config_hash: PpB_t3-mnEd5Lckhxc9rfquSMa0CndPslGvJZlcg61E
-langcode: en
-default_langcode: en
-bannerText: 'We use a selection of our own and third-party cookies on the pages of this website: Essential cookies, which are required in order to use the website; functional cookies, which provide better easy of use when using the website; performance cookies, which we use to generate aggregated data on website use and statistics; and marketing cookies, which are used to display relevant content and advertising. If you choose "ACCEPT ALL", you consent to the use of all cookies. You can accept and reject individual cookie types and revoke your consent for the future at any time at "Settings".'
-privacyPolicy: 'Privacy policy'
+langcode: fr
+bannerText: "Nous utilisons une sélection de nos propres cookies ainsi que des cookies tiers sur les pages de ce site web : des cookies essentiels, qui sont nécessaires pour utiliser le site web ; des cookies fonctionnels, qui améliorent la facilité d'utilisation du site web ; des cookies de performance, que nous utilisons pour générer des données agrégées sur l'utilisation du site et des statistiques ; et des cookies marketing, utilisés pour afficher du contenu et des publicités pertinents. Si vous choisissez « TOUT ACCEPTER », vous consentez à l'utilisation de tous les cookies. Vous pouvez accepter ou refuser les différents types de cookies et révoquer votre consentement à tout moment dans les « Paramètres »."
+privacyPolicy: 'Politique de confidentialité'
 privacyUri: ''
 imprint: Imprint
 imprintUri: ''
-cookieDocs: 'Cookie documentation'
-officialWebsite: 'Official website'
+cookieDocs: 'Documentation sur les cookies'
 cookieDocsUri: /cookies/documentation
-denyAll: 'Deny all'
-settings: 'Cookie settings'
-acceptAll: 'Accept all'
-cookieSettings: 'Cookie settings'
-close: Close
+officialWebsite: 'Site officiel'
+denyAll: 'Tout refuser'
+alwaysActive: 'Toujours actif'
+settings: 'Paramètres de cookie'
+acceptAll: 'Tout accepter'
 requiredCookies: 'Required cookies'
-readMore: 'Read more'
-allowed: Allowed
-denied: Denied
-alwaysActive: 'Always active'
-settingsAllServices: 'Settings for all services'
-saveSettings: Save
-disclaimerText: 'All cookie information is subject to change by the service providers. We update this information regularly.'
+cookieSettings: 'Paramètres de cookie'
+close: Fermer
+readMore: 'Lire la suite'
+allowed: Autorisé
+denied: Refusé
+settingsAllServices: 'Paramètres pour tous les services'
+saveSettings: Enregistrer
+default_langcode: fr
+disclaimerText: 'Toutes les informations relatives aux cookies peuvent être modifiées par les prestataires de services. Nous mettons régulièrement à jour ces informations.'
 disclaimerTextPosition: above
-processorDetailsLabel: 'Processor Company Details'
-processorLabel: Company
+processorDetailsLabel: "Détails de l'entreprise de traitement"
+processorLabel: Société
 processorWebsiteUrlLabel: 'Company Website'
-processorPrivacyPolicyUrlLabel: 'Company Privacy Policy'
-processorCookiePolicyUrlLabel: 'Company Cookie Policy'
-processorContactLabel: 'Data Protection Contact Details'
-placeholderAcceptAllText: 'Accept All Cookies'
+processorPrivacyPolicyUrlLabel: "Site web de l'entreprise"
+processorCookiePolicyUrlLabel: "Politique de confidentialité de l'entreprise"
+processorContactLabel: 'Coordonnées du contact pour la protection des données'
+placeholderAcceptAllText: 'Accepter tous les cookies'
