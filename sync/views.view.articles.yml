@@ -12,6 +12,7 @@ dependencies:
     - link
     - node
     - user
+    - views_bootstrap
 id: articles
 label: Articles
 module: views
@@ -283,11 +284,19 @@ display:
           value:
             article: article
       style:
-        type: default
+        type: views_bootstrap_cards
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
+          display: fields
+          card_title_field: ''
+          card_content_field: title
+          card_image_field: field_image
+          card_group: false
+          row_class_custom: ''
+          col_class_custom: ''
+          card_group_class_custom: ''
+          columns: '3'
       row:
         type: fields
       query:
