@@ -1,9 +1,9 @@
-uuid: 0c748c0d-87a8-4ea9-bc51-6c1d5b86759d
+uuid: 6f411df8-b847-4f64-85bf-2a0df1082fff
 langcode: fr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:94fd63df-d247-4561-b820-39f47d09af46'
+    - 'block_content:basic:812b145c-677a-47ee-a62b-d0e62bbd6b72'
   module:
     - block_content
   theme:
@@ -11,11 +11,11 @@ dependencies:
 id: gmegeer_contact
 theme: gmegeer
 region: footer
-weight: -4
+weight: 0
 provider: null
-plugin: 'block_content:94fd63df-d247-4561-b820-39f47d09af46'
+plugin: 'block_content:812b145c-677a-47ee-a62b-d0e62bbd6b72'
 settings:
-  id: 'block_content:94fd63df-d247-4561-b820-39f47d09af46'
+  id: 'block_content:812b145c-677a-47ee-a62b-d0e62bbd6b72'
   label: Contact
   label_display: visible
   provider: block_content
