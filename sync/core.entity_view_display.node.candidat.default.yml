@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.candidat.field_candidat_etat_civil
     - field.field.node.candidat.field_candidat_mandats
     - field.field.node.candidat.field_candidat_metatags
     - field.field.node.candidat.field_candidat_village
@@ -31,6 +32,14 @@ targetEntityType: node
 bundle: candidat
 mode: default
 content:
+  field_candidat_etat_civil:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
   field_candidat_mandats:
     type: string
     label: above

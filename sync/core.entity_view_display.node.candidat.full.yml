@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
+    - field.field.node.candidat.field_candidat_etat_civil
     - field.field.node.candidat.field_candidat_mandats
     - field.field.node.candidat.field_candidat_metatags
     - field.field.node.candidat.field_candidat_village
@@ -104,7 +105,7 @@ third_party_settings:
                   thousand_separator: ''
                   prefix_suffix: true
                 third_party_settings: {  }
-            weight: 7
+            weight: 8
             additional: {  }
           404389d1-1b66-442e-80b9-b5efe64a2dfc:
             uuid: 404389d1-1b66-442e-80b9-b5efe64a2dfc
@@ -122,7 +123,7 @@ third_party_settings:
                 label: inline
                 settings: {  }
                 third_party_settings: {  }
-            weight: 8
+            weight: 9
             additional: {  }
           7c39171a-d12a-4fae-a955-677b8b253d2c:
             uuid: 7c39171a-d12a-4fae-a955-677b8b253d2c
@@ -140,7 +141,7 @@ third_party_settings:
                 label: above
                 settings: {  }
                 third_party_settings: {  }
-            weight: 9
+            weight: 10
             additional: {  }
           2b8604d3-9ffd-4b03-a391-963774d890f7:
             uuid: 2b8604d3-9ffd-4b03-a391-963774d890f7
@@ -179,6 +180,25 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 6
+            additional: {  }
+          858c5ac1-f262-4bf8-bf96-abde6becaa12:
+            uuid: 858c5ac1-f262-4bf8-bf96-abde6becaa12
+            region: second
+            configuration:
+              id: 'field_block:node:candidat:field_candidat_etat_civil'
+              label: 'Etat Civil'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 7
             additional: {  }
         third_party_settings: {  }
 id: node.candidat.full
@@ -258,6 +278,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_candidat_etat_civil: true
   field_candidat_mandats: true
   field_candidat_metatags: true
   field_candidat_village: true

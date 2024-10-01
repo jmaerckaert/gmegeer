@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.candidat.field_candidat_etat_civil
     - field.field.node.candidat.field_candidat_mandats
     - field.field.node.candidat.field_candidat_metatags
     - field.field.node.candidat.field_candidat_village
@@ -82,6 +83,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_candidat_etat_civil: true
   field_candidat_mandats: true
   field_candidat_metatags: true
   field_candidat_village: true

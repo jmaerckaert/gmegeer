@@ -1,0 +1,19 @@
+uuid: 04ee5055-8975-413b-8128-e0dc07a2f4ec
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_candidat_etat_civil
+    - node.type.candidat
+id: node.candidat.field_candidat_etat_civil
+field_name: field_candidat_etat_civil
+entity_type: node
+bundle: candidat
+label: 'Etat Civil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
