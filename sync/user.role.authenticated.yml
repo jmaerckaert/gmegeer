@@ -7,8 +7,10 @@ dependencies:
   module:
     - comment
     - contact
+    - event
     - file
     - filter
+    - flag
     - google_analytics
     - media
     - search
@@ -26,9 +28,12 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'delete own files'
+  - 'flag participation'
   - 'opt-in or out of google analytics tracking'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'unflag participation'
   - 'use text format basic_html'
+  - 'view event'
   - 'view media'

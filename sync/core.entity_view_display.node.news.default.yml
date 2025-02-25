@@ -1,0 +1,80 @@
+uuid: 2f3eecf2-e510-42a6-bc8d-ac1891ee9c20
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.news.field_news_auteur
+    - field.field.node.news.field_news_content
+    - node.type.news
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          0c0ba034-9a82-4df9-a8a0-59acacc91312:
+            uuid: 0c0ba034-9a82-4df9-a8a0-59acacc91312
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_news_auteur'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: visually_hidden
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          de61b66c-8890-4382-a9b4-1268cf9625c1:
+            uuid: de61b66c-8890-4382-a9b4-1268cf9625c1
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_news_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  field_news_auteur:
+    type: entity_reference_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_news_content:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  links: true

@@ -1,0 +1,6 @@
+uuid: 60b8e9ef-e6c4-4cd5-a0b7-658b585700d7
+langcode: fr
+status: true
+dependencies: {  }
+id: event
+label: Évènement

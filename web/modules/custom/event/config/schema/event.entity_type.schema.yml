@@ -1,0 +1,16 @@
+event.event_type.*:
+  type: config_entity
+  label: 'Event type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+      label: 'UUID'
+    bundle:
+      type: string
+      label: 'Bundle'

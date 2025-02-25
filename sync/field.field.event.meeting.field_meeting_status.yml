@@ -1,0 +1,21 @@
+uuid: ac054a03-abf1-4506-af73-59abd3158133
+langcode: fr
+status: true
+dependencies:
+  config:
+    - event.event_type.meeting
+    - field.storage.event.field_meeting_status
+  module:
+    - options
+id: event.meeting.field_meeting_status
+field_name: field_meeting_status
+entity_type: event
+bundle: meeting
+label: 'Status de la réunion'
+description: '(Ex : Prévue, En cours, Terminée, Annulée)'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

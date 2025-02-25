@@ -22,7 +22,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -38,10 +38,10 @@ third_party_settings:
               label: 'Image Group'
               label_display: '0'
               provider: block_content
+              context_mapping: {  }
               status: true
               info: ''
               view_mode: full
-              context_mapping: {  }
             weight: 2
             additional: {  }
           0af1ce0c-4583-40e2-a46d-8adb20e61301:
@@ -52,10 +52,10 @@ third_party_settings:
               label: Présentation
               label_display: '0'
               provider: block_content
+              context_mapping: {  }
               status: true
               info: ''
               view_mode: full
-              context_mapping: {  }
             weight: 4
             additional:
               component_attributes:
@@ -108,10 +108,10 @@ third_party_settings:
               label: 'cta programme'
               label_display: '0'
               provider: block_content
+              context_mapping: {  }
               status: true
               info: ''
               view_mode: full
-              context_mapping: {  }
             weight: 3
             additional:
               component_attributes:

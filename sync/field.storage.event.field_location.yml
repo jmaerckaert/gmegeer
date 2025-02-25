@@ -1,0 +1,19 @@
+uuid: 2b560213-e231-49ad-a676-a09440ba4eb6
+langcode: fr
+status: true
+dependencies:
+  module:
+    - address
+    - event
+id: event.field_location
+field_name: field_location
+entity_type: event
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

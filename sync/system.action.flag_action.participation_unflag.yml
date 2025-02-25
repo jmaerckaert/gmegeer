@@ -1,0 +1,15 @@
+uuid: 4df1d96f-3a54-4729-a14d-2c74669df0e4
+langcode: fr
+status: true
+dependencies:
+  config:
+    - flag.flag.participation
+  module:
+    - flag
+id: flag_action.participation_unflag
+label: 'Je ne participe plus'
+type: event
+plugin: 'flag_action:participation_unflag'
+configuration:
+  flag_id: participation
+  flag_action: unflag

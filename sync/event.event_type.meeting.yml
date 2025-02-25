@@ -1,0 +1,8 @@
+uuid: 46d13baa-44cf-484f-bee1-10f128c47bce
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: V3LFNAGijmcW7dDvzbW5YFDq2noiL_RBO9_YUGibAaw
+id: meeting
+label: Réunion

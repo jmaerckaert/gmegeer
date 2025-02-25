@@ -1,0 +1,16 @@
+uuid: 74b2f20a-79f9-43df-8204-0043a9243824
+langcode: fr
+status: true
+dependencies: {  }
+id: nominatim
+label: Nominatim
+plugin: nominatim
+configuration:
+  throttle:
+    period: 2
+    limit: 1
+  geocoder:
+    locale: ''
+  rootUrl: 'https://nominatim.openstreetmap.org'
+  userAgent: gmegeer.be
+  referer: https;//gmegeer.be

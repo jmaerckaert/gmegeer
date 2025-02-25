@@ -1,0 +1,31 @@
+uuid: 5a304c2c-2b5e-49e9-953d-26b739c2dc96
+langcode: fr
+status: true
+dependencies:
+  config:
+    - event.event_type.meeting
+    - field.storage.event.field_documents
+    - media.type.document
+    - media.type.image
+id: event.meeting.field_documents
+field_name: field_documents
+entity_type: event
+bundle: meeting
+label: 'Documents associés'
+description: 'Pièces jointes, ordres du jour, rapports, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: document
+field_type: entity_reference

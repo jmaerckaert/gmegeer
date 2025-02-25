@@ -1,0 +1,189 @@
+uuid: 78a075bd-819a-4b32-ba3e-8ca520828919
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.event.teaser
+    - event.event_type.meeting
+    - field.field.event.meeting.field_documents
+    - field.field.event.meeting.field_event_date
+    - field.field.event.meeting.field_location
+    - field.field.event.meeting.field_map
+    - field.field.event.meeting.field_meeting_status
+  module:
+    - address
+    - layout_builder
+    - leaflet
+    - options
+    - smart_date
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: JYrayKX0XrIJ9i4-7xr1PrwooehO84aREtupFt_fSDo
+id: event.meeting.teaser
+targetEntityType: event
+bundle: meeting
+mode: teaser
+content:
+  description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_event_date:
+    type: smartdate_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: default
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_location:
+    type: address_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_map:
+    type: leaflet_formatter_default
+    label: above
+    settings:
+      multiple_map: false
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      height_unit: px
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: true
+      fitbounds_options: '{"padding":[0,0]}'
+      reset_map:
+        control: true
+        options: '{"position":"topleft","title":"Reset View"}'
+      map_scale:
+        control: true
+        options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+      locate:
+        control: false
+        options: '{"position":"topright","setView":"untilPanOrZoom","returnToPrevBounds":true,"keepCurrentZoomLevel":true,"strings":{"title":"Locate my position"}}'
+        automatic: false
+      leaflet_tooltip:
+        value: ''
+        options: '{"permanent":false,"direction":"center"}'
+      popup: false
+      popup_content: ''
+      leaflet_popup:
+        control: '1'
+        content: "<h3>[event:title]</h3>\r\n<p>[event:description]</p>"
+        options: '{"maxWidth":"300","minWidth":"50","autoPan":true}'
+      map_position:
+        force: false
+        center:
+          lat: 0.0
+          lon: 0.0
+        zoomControlPosition: topleft
+        zoom: 17
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+      weight: '0'
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+        excluded: ''
+        include_path: false
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      feature_properties:
+        values: ''
+      geocoder:
+        control: false
+        settings:
+          popup: false
+          autocomplete:
+            placeholder: 'Search Address'
+            title: 'Search an Address on the Map'
+          position: topright
+          input_size: 20
+          providers:
+            nominatim:
+              weight: 0
+              checked: false
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          options: ''
+      map_lazy_load:
+        lazy_load: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_meeting_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  flag_participation:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_documents: true
+  langcode: true
+  status: true
+  uid: true

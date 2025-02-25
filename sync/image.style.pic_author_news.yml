@@ -1,0 +1,23 @@
+uuid: cc4f5869-7c04-4b18-a49b-1361e3a9a42f
+langcode: fr
+status: true
+dependencies:
+  module:
+    - focal_point
+name: pic_author_news
+label: 'Auteur news'
+effects:
+  2fe83a6d-efa9-4322-aa9c-777e0425b545:
+    uuid: 2fe83a6d-efa9-4322-aa9c-777e0425b545
+    id: image_convert
+    weight: -9
+    data:
+      extension: webp
+  0bcb3e6b-5a9e-4c9a-b189-cf8843119030:
+    uuid: 0bcb3e6b-5a9e-4c9a-b189-cf8843119030
+    id: focal_point_scale_and_crop
+    weight: -10
+    data:
+      width: 100
+      height: 100
+      crop_type: focal_point

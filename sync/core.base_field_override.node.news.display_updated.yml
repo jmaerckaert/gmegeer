@@ -1,0 +1,22 @@
+uuid: 7f4add03-9672-42a3-a1d0-7508502d85c9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.news
+id: node.news.display_updated
+field_name: display_updated
+entity_type: node
+bundle: news
+label: 'Display updated date'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

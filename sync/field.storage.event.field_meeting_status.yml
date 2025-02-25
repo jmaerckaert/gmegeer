@@ -1,0 +1,39 @@
+uuid: dd3007d6-81d0-4861-89c5-ab13369f475b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - event
+    - options
+id: event.field_meeting_status
+field_name: field_meeting_status
+entity_type: event
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: scheduled
+      label: Prévue
+    -
+      value: in_progress
+      label: 'En cours'
+    -
+      value: completed
+      label: Terminée
+    -
+      value: canceled
+      label: Annulée
+    -
+      value: postponed
+      label: Reportée
+    -
+      value: pending_confirmation
+      label: 'En attente de confirmation'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

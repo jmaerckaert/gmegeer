@@ -1,0 +1,21 @@
+uuid: 8e4b5dc7-abeb-4fea-b065-89980424615d
+langcode: fr
+status: true
+dependencies:
+  module:
+    - event
+    - smart_date
+_core:
+  default_config_hash: 7nleuttVjdEs4QKv7pTOTOIq7IvgTBb0dJnBXXnNlHY
+id: event.field_event_date
+field_name: field_event_date
+entity_type: event
+type: smartdate
+settings: {  }
+module: smart_date
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

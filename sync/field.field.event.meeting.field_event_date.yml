@@ -1,0 +1,30 @@
+uuid: 5aa88691-e211-463c-bab6-23650e0b2e4b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - event.event_type.meeting
+    - field.storage.event.field_event_date
+  module:
+    - smart_date
+_core:
+  default_config_hash: mwrlcYPbqruVQAbQ7e461oh-I-YV7uzmeKQXZq9bMT8
+id: event.meeting.field_event_date
+field_name: field_event_date
+entity_type: event
+bundle: meeting
+label: Date
+description: 'Date et heure de début et de fin (si applicable)'
+required: true
+translatable: false
+default_value:
+  -
+    default_duration: 120
+    default_duration_increments: "30\r\n60|1 hour\r\n90\r\n120|2 hours\r\ncustom"
+    default_date_type: ''
+    default_date: ''
+    min: ''
+    max: ''
+default_value_callback: ''
+settings: {  }
+field_type: smartdate

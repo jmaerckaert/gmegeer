@@ -1,0 +1,79 @@
+uuid: 0196b93f-8eff-46aa-a82c-9684c551d36c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.news.field_news_auteur
+    - field.field.node.news.field_news_content
+    - node.type.news
+    - views.view.news_author
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          84f701c3-3d32-4bbc-a0b4-8fe70e35561c:
+            uuid: 84f701c3-3d32-4bbc-a0b4-8fe70e35561c
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_news_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          41d6fcbf-9fbd-42f4-bb53-a45f81a63faa:
+            uuid: 41d6fcbf-9fbd-42f4-bb53-a45f81a63faa
+            region: content
+            configuration:
+              id: 'views_block:news_author-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.news.full
+targetEntityType: node
+bundle: news
+mode: full
+content:
+  field_news_auteur:
+    type: entity_reference_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_news_content:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  links: true

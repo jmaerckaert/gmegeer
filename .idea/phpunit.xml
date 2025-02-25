@@ -4,6 +4,7 @@
     <option name="directories">
       <list>
         <option value="$PROJECT_DIR$/web/core/tests/PHPStan/tests" />
+        <option value="$PROJECT_DIR$/web/modules/contrib/layout_builder_component_attributes/vendor/neilime/php-css-lint/tests/TestSuite" />
       </list>
     </option>
   </component>

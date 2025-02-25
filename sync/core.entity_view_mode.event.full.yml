@@ -1,0 +1,11 @@
+uuid: 515e408f-65b9-4147-8faa-436963720a74
+langcode: fr
+status: true
+dependencies:
+  module:
+    - event
+id: event.full
+label: 'Contenu complet'
+description: ''
+targetEntityType: event
+cache: true

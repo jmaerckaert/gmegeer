@@ -1,0 +1,38 @@
+uuid: 3d3f5995-4ad5-43b4-bb0b-0578143edb90
+langcode: fr
+status: true
+dependencies:
+  config:
+    - event.event_type.meeting
+    - field.storage.event.field_map
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: geocode
+    weight: 0
+    field: field_location
+    skip_not_empty_value: false
+    disabled: false
+    hidden: false
+    providers:
+      - nominatim
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: event.meeting.field_map
+field_name: field_map
+entity_type: event
+bundle: meeting
+label: Map
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

@@ -1,0 +1,11 @@
+uuid: ab9d2222-4d48-40a5-a7f4-5f1f054a7729
+langcode: fr
+status: true
+dependencies:
+  module:
+    - event
+id: event.teaser
+label: Accroche
+description: ''
+targetEntityType: event
+cache: true

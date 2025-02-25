@@ -1,0 +1,104 @@
+uuid: c4fbf6c4-8da9-4e10-b6a9-0e779c542d40
+langcode: fr
+status: true
+dependencies:
+  config:
+    - event.event_type.meeting
+    - field.field.event.meeting.field_documents
+    - field.field.event.meeting.field_event_date
+    - field.field.event.meeting.field_location
+    - field.field.event.meeting.field_map
+    - field.field.event.meeting.field_meeting_status
+  module:
+    - address_suggestion
+    - media_library
+    - smart_date
+    - text
+_core:
+  default_config_hash: wFyb6aj4pNbWbcpgKHeWrnMd9nY0zbSADV9adcLE9sA
+id: event.meeting.default
+targetEntityType: event
+bundle: meeting
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_documents:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_event_date:
+    type: smartdate_inline
+    weight: 4
+    region: content
+    settings:
+      modal: false
+      default_duration: 60
+      default_duration_increments: |-
+        30
+        60|1 hour
+        90
+        120|2 hours
+        custom
+      show_extra: false
+      hide_date: true
+      allday: true
+      remove_seconds: false
+      duration_overlay: true
+      separator: to
+    third_party_settings: {  }
+  field_location:
+    type: address_suggestion
+    weight: 5
+    region: content
+    settings:
+      location_field: field_map
+      provider: nominatim
+      endpoint: ''
+      api_key: ''
+      username: ''
+      password: ''
+      hide: false
+      wrapper_type: fieldset
+    third_party_settings: {  }
+  field_meeting_status:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: false
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_map: true
+  uid: true

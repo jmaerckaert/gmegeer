@@ -1,0 +1,48 @@
+uuid: 73233ae7-2aff-4a78-ad85-5efb92a5dbe9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - event.event_type.meeting
+    - field.storage.event.field_location
+  module:
+    - address
+_core:
+  default_config_hash: b5Mw51a6W-hh5ePeHhqIE4emzCSxBwXV3uXfCU_-Pg8
+id: event.meeting.field_location
+field_name: field_location
+entity_type: event
+bundle: meeting
+label: Lieu
+description: 'Adresse ou salle de réunion'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    BE: BE
+  langcode_override: fr
+  field_overrides:
+    givenName:
+      override: optional
+    additionalName:
+      override: hidden
+    familyName:
+      override: optional
+    organization:
+      override: optional
+    addressLine1:
+      override: required
+    postalCode:
+      override: required
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: optional
+    locality:
+      override: required
+    administrativeArea:
+      override: hidden
+  fields: {  }
+field_type: address

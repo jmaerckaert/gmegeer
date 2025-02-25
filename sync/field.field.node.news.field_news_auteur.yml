@@ -1,0 +1,29 @@
+uuid: 06d1805f-fba9-4f34-bf16-69504ace5529
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_auteur
+    - node.type.news
+id: node.news.field_news_auteur
+field_name: field_news_auteur
+entity_type: node
+bundle: news
+label: Auteur
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

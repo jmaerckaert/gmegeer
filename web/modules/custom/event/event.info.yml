@@ -1,0 +1,21 @@
+name: 'Event'
+type: module
+description: 'Adds the Meeting content type with preconfigured fields.'
+package: 'Custom'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:text
+  - drupal:datetime
+  - drupal:user
+  - drupal:link
+  - drupal:file
+  - drupal:views
+  - flag:flag
+  - fullcalendar_view:fullcalendar_view
+  - geofield:geofield
+  - geocoder:geocoder
+  - address:address
+  - address_suggestion:address_suggestion
+  - smart_date:smart_date

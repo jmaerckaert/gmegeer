@@ -1,0 +1,15 @@
+uuid: 1f1097c8-ae99-4cc1-a24f-066ebbb46a1b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - flag.flag.participation
+  module:
+    - flag
+id: flag_action.participation_flag
+label: 'Je participe'
+type: event
+plugin: 'flag_action:participation_flag'
+configuration:
+  flag_id: participation
+  flag_action: flag

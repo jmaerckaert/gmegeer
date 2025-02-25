@@ -1,0 +1,31 @@
+uuid: becc7acc-cf66-4190-b08c-b78eb58fe98b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - event
+id: participation
+label: Participation
+bundles:
+  - event
+  - meeting
+entity_type: event
+global: false
+flag_short: 'Confirmer ma participation'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Annuler ma participation'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:event'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

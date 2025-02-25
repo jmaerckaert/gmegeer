@@ -1,0 +1,30 @@
+uuid: 3d5f86d0-8cf8-44e1-a4b8-80ea060aeadd
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_content
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.news
+  module:
+    - text
+id: node.news.field_news_content
+field_name: field_news_content
+entity_type: node
+bundle: news
+label: "Contenu de l'article"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+field_type: text_with_summary

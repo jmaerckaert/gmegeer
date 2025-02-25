@@ -4,14 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.front.body
+    - field.field.node.front.layout_builder__layout
     - node.type.front
-  content:
-    - 'block_content:basic:d242759c-5f07-473b-803a-f57142d1f590'
-    - 'block_content:image:dcba9878-d4f4-44cd-b79d-04975b5a28dc'
   module:
-    - block_content
     - layout_builder
-    - layout_discovery
     - text
     - user
 third_party_settings:
@@ -37,3 +33,4 @@ content:
     region: content
 hidden:
   langcode: true
+  layout_builder__layout: true

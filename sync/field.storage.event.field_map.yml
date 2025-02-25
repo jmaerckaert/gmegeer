@@ -1,0 +1,20 @@
+uuid: 217c910e-5206-4c45-b99e-9b29894afe8f
+langcode: fr
+status: true
+dependencies:
+  module:
+    - event
+    - geofield
+id: event.field_map
+field_name: field_map
+entity_type: event
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
