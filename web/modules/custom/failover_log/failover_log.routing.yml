@@ -1,0 +1,7 @@
+entity.failover_log.collection:
+  path: '/admin/content/failover-logs'
+  defaults:
+    _entity_list: 'failover_log'
+    _title: 'Failover Logs'
+  requirements:
+    _permission: 'access failover log overview'

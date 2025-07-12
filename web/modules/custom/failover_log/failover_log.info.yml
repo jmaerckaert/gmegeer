@@ -1,0 +1,7 @@
+name: 'Failover Log'
+type: module
+description: 'Enregistre les événements de basculement de réseau.'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - text
