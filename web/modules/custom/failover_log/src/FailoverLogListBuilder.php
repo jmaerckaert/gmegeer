@@ -13,6 +13,7 @@ class FailoverLogListBuilder extends EntityListBuilder {
     $header['interface'] = $this->t('Interface');
     $header['interface_label'] = $this->t('Nom lisible');
     $header['status'] = $this->t('Statut');
+    $header['duration'] = $this->t('Duration');
     $header['message'] = $this->t('Message');
     return $header + parent::buildHeader();
   }
@@ -24,6 +25,7 @@ class FailoverLogListBuilder extends EntityListBuilder {
     $row['interface'] = $entity->get('interface')->value;
     $row['interface_label'] = $entity->get('interface_label')->value;
     $row['status'] = $entity->get('status')->value;
+    $row['duration'] = $entity->get('duration')->value;
     $row['message'] = $entity->get('message')->value;
     return $row + parent::buildRow($entity);
   }

@@ -1,0 +1,6 @@
+failover_log.admin:
+  title: 'Failover Logs'
+  description: 'Consulter les journaux de basculement de réseau.'
+  route_name: entity.failover_log.collection
+  parent: system.admin_content
+  weight: 100

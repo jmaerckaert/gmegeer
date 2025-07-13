@@ -55,6 +55,10 @@ class FailoverLog extends ContentEntityBase {
       ->setLabel(t('Statut'))
       ->setDisplayConfigurable('form', TRUE);
 
+    $fields['duration'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Duration'))
+      ->setDisplayConfigurable('form', TRUE);
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Créé le'));
 

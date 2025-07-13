@@ -1,0 +1,10 @@
+<?php
+
+use Drupal\failover_log\Entity\FailoverLog;
+
+/**
+ * Implements hook_install().
+ */
+function failover_log_install() {
+  // Optionnel : ajout automatique de permissions.
+}

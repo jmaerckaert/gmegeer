@@ -1,0 +1,34 @@
+{
+  "view": {
+    "name": "failover_log_view",
+    "base_table": "failover_log",
+    "display": {
+      "default": {
+        "display_plugin": "default",
+        "display_title": "Failover Logs",
+        "filters": {
+          "created": {
+            "id": "created",
+            "table": "failover_log",
+            "field": "created",
+            "operator": ">=",
+            "value": "now -1 month"
+          },
+          "interface_label": {
+            "id": "interface_label",
+            "table": "failover_log",
+            "field": "interface_label",
+            "operator": "contains"
+          }
+        },
+        "fields": [
+          "created",
+          "interface_label",
+          "status",
+          "duration",
+          "message"
+        ]
+      }
+    }
+  }
+}
