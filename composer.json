@@ -118,6 +118,9 @@
         },
         "enable-patching": true,
         "patches": {
+            "drupal/cookies": {
+                "Fix submitConfigurationForm signature in CookiesDocsBlock": "patches/0001-fix-submitConfigurationForm-signature.patch"
+            }
         },
         "drupal-lenient": {
             "allowed-list": ["drupal/google_analytics"]
