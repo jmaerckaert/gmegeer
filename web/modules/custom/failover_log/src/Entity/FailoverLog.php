@@ -20,7 +20,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     "label" = "message"
  *   },
  *   handlers = {
- *     "list_builder" = "Drupal\\failover_log\\FailoverLogListBuilder"
+ *     "list_builder" = "Drupal\failover_log\FailoverLogListBuilder"
  *   },
  *   admin_permission = "access failover log overview",
  *   links = {
