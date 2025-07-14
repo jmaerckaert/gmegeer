@@ -1,0 +1,5 @@
+services:
+  failover_log.commands:
+    class: Drupal\failover_log\Commands\FailoverLogCommands
+    tags:
+      - { name: drush.command }
