@@ -6,6 +6,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\failover_log\Entity\FailoverLog;
 use Drupal\Component\Datetime\TimeInterface;
 use Drush\Attributes as CLI;
+use Drush\Commands\AutowireTrait;
 use Drush\Commands\DrushCommands;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -14,6 +15,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 final class FailoverLogCommands extends DrushCommands {
 
+  use AutowireTrait;
+  
   public function __construct(
     private readonly EntityTypeManagerInterface $entityTypeManager,
     private readonly TimeInterface $time,
