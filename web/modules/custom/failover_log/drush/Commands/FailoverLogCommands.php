@@ -9,27 +9,18 @@ use Drupal\Component\Datetime\TimeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Classe Drush pour mettre à jour les durées des connexions actives.
+ * Classe Drush pour interagir avec les entités failover_log.
  */
 class FailoverLogCommands extends DrushCommands {
 
-  /** @var \Drupal\Core\Entity\EntityTypeManagerInterface */
   protected EntityTypeManagerInterface $entityTypeManager;
-
-  /** @var \Drupal\Component\Datetime\TimeInterface */
   protected TimeInterface $time;
 
-  /**
-   * Constructeur utilisant l'injection de dépendances.
-   */
   public function __construct(EntityTypeManagerInterface $entityTypeManager, TimeInterface $time) {
     $this->entityTypeManager = $entityTypeManager;
     $this->time = $time;
   }
 
-  /**
-   * Méthode statique de construction du service pour Drush.
-   */
   public static function create(ContainerInterface $container): self {
     return new static(
       $container->get('entity_type.manager'),
@@ -42,11 +33,8 @@ class FailoverLogCommands extends DrushCommands {
    *
    * @command failover_log:update-durations
    * @aliases fl-update
-   * @usage drush failover_log:update-durations
-   *   Met à jour les entités failover_log avec une durée si elles sont actives.
    */
   public function updateDurations(): void {
-    // Requête des entités dont la durée est "active".
     $query = $this->entityTypeManager->getStorage('failover_log')->getQuery();
     $query->condition('duration', 'active');
     $ids = $query->execute();
@@ -72,5 +60,59 @@ class FailoverLogCommands extends DrushCommands {
     }
 
     $this->output()->writeln("Mise à jour terminée pour " . count($ids) . " log(s).");
+  }
+
+  /**
+   * Supprime tous les logs.
+   *
+   * @command failover_log:delete-all
+   * @aliases fl-delete-all
+   */
+  public function deleteAll(): void {
+    $storage = $this->entityTypeManager->getStorage('failover_log');
+    $ids = $storage->getQuery()->execute();
+    if ($ids) {
+      $storage->delete($storage->loadMultiple($ids));
+      $this->output()->writeln("Tous les logs ont été supprimés.");
+    }
+    else {
+      $this->output()->writeln("Aucun log à supprimer.");
+    }
+  }
+
+  /**
+   * Supprime les logs avec un statut KO.
+   *
+   * @command failover_log:delete-ko
+   * @aliases fl-delete-ko
+   */
+  public function deleteKO(): void {
+    $storage = $this->entityTypeManager->getStorage('failover_log');
+    $ids = $storage->getQuery()->condition('status', 'KO')->execute();
+    if ($ids) {
+      $storage->delete($storage->loadMultiple($ids));
+      $this->output()->writeln("Logs KO supprimés.");
+    }
+    else {
+      $this->output()->writeln("Aucun log KO à supprimer.");
+    }
+  }
+
+  /**
+   * Supprime les logs avec un statut OK.
+   *
+   * @command failover_log:delete-ok
+   * @aliases fl-delete-ok
+   */
+  public function deleteOK(): void {
+    $storage = $this->entityTypeManager->getStorage('failover_log');
+    $ids = $storage->getQuery()->condition('status', 'OK')->execute();
+    if ($ids) {
+      $storage->delete($storage->loadMultiple($ids));
+      $this->output()->writeln("Logs OK supprimés.");
+    }
+    else {
+      $this->output()->writeln("Aucun log OK à supprimer.");
+    }
   }
 }
