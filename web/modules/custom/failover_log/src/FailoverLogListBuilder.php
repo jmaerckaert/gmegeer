@@ -29,4 +29,8 @@ class FailoverLogListBuilder extends EntityListBuilder {
     $row['message'] = $entity->get('message')->value;
     return $row + parent::buildRow($entity);
   }
+
+  public function getOperations(EntityInterface $entity): array {
+    return parent::getOperations($entity);
+  }
 }
