@@ -1,46 +1,44 @@
 <?php
 
-namespace Drupal\failover_log\Commands;
+namespace Drupal\failover_log\Drush\Commands;
 
-use Drupal\failover_log\Entity\FailoverLog;
-use Drush\Commands\DrushCommands;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\failover_log\Entity\FailoverLog;
 use Drupal\Component\Datetime\TimeInterface;
+use Drush\Attributes as CLI;
+use Drush\Commands\DrushCommands;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Classe Drush pour interagir avec les entités failover_log.
+ * Drush commands for the Failover Log module.
  */
-class FailoverLogCommands extends DrushCommands {
+final class FailoverLogCommands extends DrushCommands {
 
-  protected EntityTypeManagerInterface $entityTypeManager;
-  protected TimeInterface $time;
-
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, TimeInterface $time) {
-    $this->entityTypeManager = $entityTypeManager;
-    $this->time = $time;
+  public function __construct(
+    private readonly EntityTypeManagerInterface $entityTypeManager,
+    private readonly TimeInterface $time,
+  ) {
+    parent::__construct();
   }
 
-  public static function create(ContainerInterface $container): self {
+  public static function create(ContainerInterface $container): static {
     return new static(
       $container->get('entity_type.manager'),
-      $container->get('datetime.time')
+      $container->get('datetime.time'),
     );
   }
 
   /**
-   * Met à jour la durée des connexions actives.
-   *
-   * @command failover_log:update-durations
-   * @aliases fl-update
+   * Updates the duration field for all active failover logs.
    */
+  #[CLI\Command(name: 'failover_log:update-durations', aliases: ['fl-update'])]
   public function updateDurations(): void {
     $query = $this->entityTypeManager->getStorage('failover_log')->getQuery();
     $query->condition('duration', 'active');
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln("Aucune connexion active trouvée.");
+      $this->output()->writeln("No active connections found.");
       return;
     }
 
@@ -50,69 +48,64 @@ class FailoverLogCommands extends DrushCommands {
 
     foreach ($entities as $log) {
       assert($log instanceof FailoverLog);
-
       $created = $log->getCreatedTime();
       $elapsed = $now - $created;
       $minutes = (int) round($elapsed / 60);
-
       $log->set('duration', $minutes . ' min');
       $log->save();
     }
 
-    $this->output()->writeln("Mise à jour terminée pour " . count($ids) . " log(s).");
+    $this->output()->writeln("Updated durations for " . count($ids) . " log(s).\n");
   }
 
   /**
-   * Supprime tous les logs.
-   *
-   * @command failover_log:delete-all
-   * @aliases fl-delete-all
+   * Deletes all failover logs.
    */
+  #[CLI\Command(name: 'failover_log:delete-all', aliases: ['fl-delete-all'])]
   public function deleteAll(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
     $ids = $storage->getQuery()->execute();
+
     if ($ids) {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln("Tous les logs ont été supprimés.");
+      $this->output()->writeln("All logs have been deleted.");
     }
     else {
-      $this->output()->writeln("Aucun log à supprimer.");
+      $this->output()->writeln("No logs found to delete.");
     }
   }
 
   /**
-   * Supprime les logs avec un statut KO.
-   *
-   * @command failover_log:delete-ko
-   * @aliases fl-delete-ko
+   * Deletes all failover logs with status KO.
    */
+  #[CLI\Command(name: 'failover_log:delete-ko', aliases: ['fl-delete-ko'])]
   public function deleteKO(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
     $ids = $storage->getQuery()->condition('status', 'KO')->execute();
+
     if ($ids) {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln("Logs KO supprimés.");
+      $this->output()->writeln("KO logs have been deleted.");
     }
     else {
-      $this->output()->writeln("Aucun log KO à supprimer.");
+      $this->output()->writeln("No KO logs to delete.");
     }
   }
 
   /**
-   * Supprime les logs avec un statut OK.
-   *
-   * @command failover_log:delete-ok
-   * @aliases fl-delete-ok
+   * Deletes all failover logs with status OK.
    */
+  #[CLI\Command(name: 'failover_log:delete-ok', aliases: ['fl-delete-ok'])]
   public function deleteOK(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
     $ids = $storage->getQuery()->condition('status', 'OK')->execute();
+
     if ($ids) {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln("Logs OK supprimés.");
+      $this->output()->writeln("OK logs have been deleted.");
     }
     else {
-      $this->output()->writeln("Aucun log OK à supprimer.");
+      $this->output()->writeln("No OK logs to delete.");
     }
   }
 }
