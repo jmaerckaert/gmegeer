@@ -11,35 +11,61 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Drush commands for the Failover Log module.
+ *
+ * Provides commands to update durations and manage log entities.
  */
 final class FailoverLogCommands extends DrushCommands {
 
-  public function __construct(
-    private readonly EntityTypeManagerInterface $entityTypeManager,
-    private readonly TimeInterface $time,
-  ) {
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  private readonly EntityTypeManagerInterface $entityTypeManager;
+
+  /**
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  private readonly TimeInterface $time;
+
+  /**
+   * Constructs a new FailoverLogCommands object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service for current timestamp retrieval.
+   */
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, TimeInterface $time) {
     parent::__construct();
+    $this->entityTypeManager = $entityTypeManager;
+    $this->time = $time;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public static function create(ContainerInterface $container): static {
     return new static(
       $container->get('entity_type.manager'),
-      $container->get('datetime.time'),
+      $container->get('datetime.time')
     );
   }
 
   /**
-   * Updates the duration field for all active failover logs.
+   * Updates the `duration` field for all active failover logs.
+   *
+   * @command failover_log:update-durations
+   * @aliases fl-update
    */
   #[CLI\Command(name: 'failover_log:update-durations', aliases: ['fl-update'])]
   public function updateDurations(): void {
+    // Query active logs (duration set to 'active') without access checks.
     $query = $this->entityTypeManager->getStorage('failover_log')->getQuery();
     $query->condition('duration', 'active');
     $query->accessCheck(FALSE);
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln("No active connections found.");
+      $this->output()->writeln($this->formatter()->formatString('No active connections found.'));
       return;
     }
 
@@ -49,21 +75,23 @@ final class FailoverLogCommands extends DrushCommands {
 
     foreach ($entities as $log) {
       assert($log instanceof FailoverLog);
-      $created = $log->get('created')->value;
-      if ($created === NULL) {
-        continue;
-      }
-      $elapsed = $now - (int) $created;
+      // Retrieve created timestamp from the base field.
+      $created = (int) $log->get('created')->value;
+      // Compute elapsed minutes.
+      $elapsed = $now - $created;
       $minutes = (int) round($elapsed / 60);
       $log->set('duration', $minutes . ' min');
       $log->save();
     }
 
-    $this->output()->writeln("Updated durations for " . count($ids) . " log(s).\n");
+    $this->output()->writeln($this->formatter()->formatString('Updated durations for @count log(s).', ['@count' => count($ids)]));
   }
 
   /**
    * Deletes all failover logs.
+   *
+   * @command failover_log:delete-all
+   * @aliases fl-delete-all
    */
   #[CLI\Command(name: 'failover_log:delete-all', aliases: ['fl-delete-all'])]
   public function deleteAll(): void {
@@ -72,50 +100,58 @@ final class FailoverLogCommands extends DrushCommands {
     $query->accessCheck(FALSE);
     $ids = $query->execute();
 
-    if ($ids) {
-      $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln("All logs have been deleted.");
+    if (empty($ids)) {
+      $this->output()->writeln($this->formatter()->formatString('No logs found to delete.'));
     }
     else {
-      $this->output()->writeln("No logs found to delete.");
+      $storage->delete($storage->loadMultiple($ids));
+      $this->output()->writeln($this->formatter()->formatString('All logs have been deleted.'));
     }
   }
 
   /**
-   * Deletes all failover logs with status KO.
+   * Deletes failover logs with status KO.
+   *
+   * @command failover_log:delete-ko
+   * @aliases fl-delete-ko
    */
   #[CLI\Command(name: 'failover_log:delete-ko', aliases: ['fl-delete-ko'])]
   public function deleteKO(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
-    $query = $storage->getQuery()->condition('status', 'KO');
+    $query = $storage->getQuery()
+      ->condition('status', 'KO');
     $query->accessCheck(FALSE);
     $ids = $query->execute();
 
-    if ($ids) {
-      $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln("KO logs have been deleted.");
+    if (empty($ids)) {
+      $this->output()->writeln($this->formatter()->formatString('No KO logs to delete.'));
     }
     else {
-      $this->output()->writeln("No KO logs to delete.");
+      $storage->delete($storage->loadMultiple($ids));
+      $this->output()->writeln($this->formatter()->formatString('KO logs have been deleted.'));
     }
   }
 
   /**
-   * Deletes all failover logs with status OK.
+   * Deletes failover logs with status OK.
+   *
+   * @command failover_log:delete-ok
+   * @aliases fl-delete-ok
    */
   #[CLI\Command(name: 'failover_log:delete-ok', aliases: ['fl-delete-ok'])]
   public function deleteOK(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
-    $query = $storage->getQuery()->condition('status', 'OK');
+    $query = $storage->getQuery()
+      ->condition('status', 'OK');
     $query->accessCheck(FALSE);
     $ids = $query->execute();
 
-    if ($ids) {
-      $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln("OK logs have been deleted.");
+    if (empty($ids)) {
+      $this->output()->writeln($this->formatter()->formatString('No OK logs to delete.'));
     }
     else {
-      $this->output()->writeln("No OK logs to delete.");
+      $storage->delete($storage->loadMultiple($ids));
+      $this->output()->writeln($this->formatter()->formatString('OK logs have been deleted.'));
     }
   }
 }
