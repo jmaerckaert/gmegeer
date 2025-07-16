@@ -17,11 +17,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 final class FailoverLogCommands extends DrushCommands {
 
   /**
+   * The entity type manager service.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   private readonly EntityTypeManagerInterface $entityTypeManager;
 
   /**
+   * The time service for current timestamp retrieval.
+   *
    * @var \Drupal\Component\Datetime\TimeInterface
    */
   private readonly TimeInterface $time;
@@ -32,7 +36,7 @@ final class FailoverLogCommands extends DrushCommands {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager service.
    * @param \Drupal\Component\Datetime\TimeInterface $time
-   *   The time service for current timestamp retrieval.
+   *   The time service.
    */
   public function __construct(EntityTypeManagerInterface $entityTypeManager, TimeInterface $time) {
     parent::__construct();
@@ -58,33 +62,34 @@ final class FailoverLogCommands extends DrushCommands {
    */
   #[CLI\Command(name: 'failover_log:update-durations', aliases: ['fl-update'])]
   public function updateDurations(): void {
-    // Query active logs (duration set to 'active') without access checks.
+    // Query active logs (duration = 'active') without access checks.
     $query = $this->entityTypeManager->getStorage('failover_log')->getQuery();
     $query->condition('duration', 'active');
     $query->accessCheck(FALSE);
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->formatter()->formatString('No active connections found.'));
+      // No logs to update.
+      $this->output()->writeln($this->t('No active connections found.'));
       return;
     }
 
     $storage = $this->entityTypeManager->getStorage('failover_log');
     $entities = $storage->loadMultiple($ids);
     $now = $this->time->getCurrentTime();
+    $updated = 0;
 
     foreach ($entities as $log) {
       assert($log instanceof FailoverLog);
-      // Retrieve created timestamp from the base field.
       $created = (int) $log->get('created')->value;
-      // Compute elapsed minutes.
       $elapsed = $now - $created;
       $minutes = (int) round($elapsed / 60);
       $log->set('duration', $minutes . ' min');
       $log->save();
+      $updated++;
     }
 
-    $this->output()->writeln($this->formatter()->formatString('Updated durations for @count log(s).', ['@count' => count($ids)]));
+    $this->output()->writeln($this->t('Updated durations for @count log(s).', ['@count' => $updated]));
   }
 
   /**
@@ -101,11 +106,11 @@ final class FailoverLogCommands extends DrushCommands {
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->formatter()->formatString('No logs found to delete.'));
+      $this->output()->writeln($this->t('No logs found to delete.'));
     }
     else {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln($this->formatter()->formatString('All logs have been deleted.'));
+      $this->output()->writeln($this->t('All logs have been deleted.'));
     }
   }
 
@@ -124,11 +129,11 @@ final class FailoverLogCommands extends DrushCommands {
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->formatter()->formatString('No KO logs to delete.'));
+      $this->output()->writeln($this->t('No KO logs to delete.'));
     }
     else {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln($this->formatter()->formatString('KO logs have been deleted.'));
+      $this->output()->writeln($this->t('KO logs have been deleted.'));
     }
   }
 
@@ -147,11 +152,11 @@ final class FailoverLogCommands extends DrushCommands {
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->formatter()->formatString('No OK logs to delete.'));
+      $this->output()->writeln($this->t('No OK logs to delete.'));
     }
     else {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln($this->formatter()->formatString('OK logs have been deleted.'));
+      $this->output()->writeln($this->t('OK logs have been deleted.'));
     }
   }
 }

@@ -1,0 +1,6 @@
+services:
+  failover_log.cron:
+    class: Drupal\failover_log\FailoverLogCron
+    arguments: ['@entity_type.manager', '@datetime.time']
+    tags:
+      - { name: cron, time: 600 }
