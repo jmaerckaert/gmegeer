@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types = 1);
+
 namespace Drupal\ethpillar_monitoring\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
@@ -19,15 +22,12 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *       "add" = "Drupal\\ethpillar_monitoring\\Form\\EthpillarIncidentForm",
  *       "edit" = "Drupal\\ethpillar_monitoring\\Form\\EthpillarIncidentForm",
  *       "delete" = "Drupal\\Core\\Entity\\ContentEntityDeleteForm"
- *     },
- *     "view_builder" = "Drupal\\Core\\Entity\\EntityViewBuilder",
- *     "route_provider" = {
- *       "html" = "Drupal\\Core\\Entity\\Routing\\DefaultHtmlRouteProvider",
  *     }
+ *     // <-- Suppression de la section "route_provider"
  *   },
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "timestamp"
+ *     "label" = "created"
  *   },
  *   links = {
  *     "canonical" = "/admin/ethpillar_incident/{ethpillar_incident}",
@@ -40,25 +40,18 @@ use Drupal\Core\Field\BaseFieldDefinition;
  */
 class EthpillarIncident extends ContentEntityBase {
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
+  public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
     $fields = parent::baseFieldDefinitions($entity_type);
 
     $fields['hostname'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Hostname'))
       ->setRequired(TRUE)
-      ->setSettings([
-        'max_length' => 255,
-      ]);
+      ->setSettings(['max_length' => 255]);
 
     $fields['status'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Status'))
       ->setRequired(TRUE)
-      ->setSettings([
-        'max_length' => 50,
-      ]);
+      ->setSettings(['max_length' => 50]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Timestamp'));
