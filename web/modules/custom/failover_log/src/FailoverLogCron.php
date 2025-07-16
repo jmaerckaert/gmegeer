@@ -6,31 +6,31 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Component\Datetime\TimeInterface;
 
 /**
- * Cron callback for Failover Log durations.
+ * Service de cron pour mettre à jour les durées des logs de basculement.
  */
 class FailoverLogCron {
 
   /**
-   * Entity type manager service.
+   * Gestionnaire de types d'entités.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected EntityTypeManagerInterface $entityTypeManager;
 
   /**
-   * Time service.
+   * Service de gestion du temps.
    *
    * @var \Drupal\Component\Datetime\TimeInterface
    */
   protected TimeInterface $time;
 
   /**
-   * Constructs the cron service.
+   * Construit le service de cron.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   The entity type manager.
+   *   Le gestionnaire de types d'entités.
    * @param \Drupal\Component\Datetime\TimeInterface $time
-   *   The time service.
+   *   Le service de gestion du temps.
    */
   public function __construct(EntityTypeManagerInterface $entityTypeManager, TimeInterface $time) {
     $this->entityTypeManager = $entityTypeManager;
@@ -38,12 +38,16 @@ class FailoverLogCron {
   }
 
   /**
-   * Run method called on cron.
+   * Met à jour les durées des logs de basculement actifs.
+   *
+   * Cette méthode est appelée lors de l'exécution du cron et calcule la durée
+   * écoulée pour les logs de basculement qui n'ont pas encore de durée définie
+   * (duration = NULL).
    */
-  public function run() : void {
+  public function run(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
     $query = $storage->getQuery()
-      ->condition('duration', 'active')
+      ->condition('duration', NULL, 'IS NULL') // Logs actifs sans durée définie
       ->accessCheck(FALSE);
     $ids = $query->execute();
 
@@ -55,12 +59,18 @@ class FailoverLogCron {
     $now = $this->time->getCurrentTime();
 
     foreach ($entities as $log) {
-      $created = (int) $log->get('created')->value;
-      $elapsed = $now - $created;
-      $minutes = (int) round($elapsed / 60);
-      $log->set('duration', $minutes . ' min');
-      $log->save();
+      try {
+        $created = (int) $log->get('created')->value;
+        $elapsed = $now - $created;
+        $minutes = (int) round($elapsed / 60);
+        $log->set('duration', $minutes); // Valeur entière en minutes
+        $log->save();
+      } catch (\Exception $e) {
+        \Drupal::logger('failover_log')->error('Erreur lors de la mise à jour du log @id : @message', [
+          '@id' => $log->id(),
+          '@message' => $e->getMessage(),
+        ]);
+      }
     }
   }
-
 }
