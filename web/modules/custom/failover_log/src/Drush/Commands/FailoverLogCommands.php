@@ -70,7 +70,7 @@ final class FailoverLogCommands extends DrushCommands {
 
     if (empty($ids)) {
       // No logs to update.
-      $this->output()->writeln($this->t('No active connections found.'));
+      $this->output()->writeln('No active connections found.');
       return;
     }
 
@@ -89,7 +89,7 @@ final class FailoverLogCommands extends DrushCommands {
       $updated++;
     }
 
-    $this->output()->writeln($this->t('Updated durations for @count log(s).', ['@count' => $updated]));
+    $this->output()->writeln(sprintf('Updated durations for %d log(s).', $updated));
   }
 
   /**
@@ -106,11 +106,11 @@ final class FailoverLogCommands extends DrushCommands {
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->t('No logs found to delete.'));
+      $this->output()->writeln('No logs found to delete.');
     }
     else {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln($this->t('All logs have been deleted.'));
+      $this->output()->writeln('All logs have been deleted.');
     }
   }
 
@@ -129,11 +129,11 @@ final class FailoverLogCommands extends DrushCommands {
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->t('No KO logs to delete.'));
+      $this->output()->writeln('No KO logs to delete.');
     }
     else {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln($this->t('KO logs have been deleted.'));
+      $this->output()->writeln('KO logs have been deleted.');
     }
   }
 
@@ -152,11 +152,11 @@ final class FailoverLogCommands extends DrushCommands {
     $ids = $query->execute();
 
     if (empty($ids)) {
-      $this->output()->writeln($this->t('No OK logs to delete.'));
+      $this->output()->writeln('No OK logs to delete.');
     }
     else {
       $storage->delete($storage->loadMultiple($ids));
-      $this->output()->writeln($this->t('OK logs have been deleted.'));
+      $this->output()->writeln('OK logs have been deleted.');
     }
   }
 }
