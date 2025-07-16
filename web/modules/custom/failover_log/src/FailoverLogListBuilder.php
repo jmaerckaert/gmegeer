@@ -1,36 +1,42 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\failover_log;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 
+/**
+ * Construit la liste des entités Failover Log.
+ */
 class FailoverLogListBuilder extends EntityListBuilder {
 
-  public function buildHeader(): array {
-    $header['id'] = $this->t('ID');
-    $header['created'] = $this->t('Date');
-    $header['interface'] = $this->t('Interface');
-    $header['interface_label'] = $this->t('Nom lisible');
-    $header['status'] = $this->t('Statut');
-    $header['duration'] = $this->t('Duration');
-    $header['message'] = $this->t('Message');
-    return $header + parent::buildHeader();
-  }
+    /**
+     * {@inheritdoc}
+     */
+    public function buildHeader(): array {
+        return [
+                'message' => $this->t('Message'),
+                'interface' => $this->t('Interface'),
+                'interface_label' => $this->t('Libellé de l’interface'),
+                'status' => $this->t('Statut'),
+                'duration' => $this->t('Durée (ms)'),
+                'created' => $this->t('Créé le'),
+            ] + parent::buildHeader();
+    }
 
-  public function buildRow(EntityInterface $entity): array {
-    /** @var \Drupal\failover_log\Entity\FailoverLog $entity */
-    $row['id'] = $entity->id();
-    $row['created'] = \Drupal::service('date.formatter')->format($entity->get('created')->value);
-    $row['interface'] = $entity->get('interface')->value;
-    $row['interface_label'] = $entity->get('interface_label')->value;
-    $row['status'] = $entity->get('status')->value;
-    $row['duration'] = $entity->get('duration')->value;
-    $row['message'] = $entity->get('message')->value;
-    return $row + parent::buildRow($entity);
-  }
-
-  public function getOperations(EntityInterface $entity): array {
-    return parent::getOperations($entity);
-  }
+    /**
+     * {@inheritdoc}
+     */
+    public function buildRow(EntityInterface $entity): array {
+        return [
+                'message' => $entity->get('message')->value,
+                'interface' => $entity->get('interface')->value,
+                'interface_label' => $entity->get('interface_label')->value,
+                'status' => $entity->get('status')->value,
+                'duration' => $entity->get('duration')->value,
+                'created' => $entity->get('created')->view(['type' => 'timestamp']),
+            ] + parent::buildRow($entity);
+    }
 }
