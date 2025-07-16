@@ -1,0 +1,6 @@
+ethpillar_monitoring.ethpillar_incident_collection:
+  title: 'Ethpillar incidents'
+  description: 'List all Ethpillar incidents.'
+  route_name: entity.ethpillar_incident.collection
+  parent: system.admin_content
+  weight: 100

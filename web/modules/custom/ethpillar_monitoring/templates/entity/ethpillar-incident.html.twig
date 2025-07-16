@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme override for EthpillarIncident entity.
+ */
+#}
+<div class="ethpillar-incident">
+  <h2>{{ label }}</h2>
+  <div class="details">
+    <p><strong>{{ 'Hostname'|t }}:</strong> {{ content.hostname }}</p>
+    <p><strong>{{ 'Status'|t }}:</strong> {{ content.status }}</p>
+    <p><strong>{{ 'Timestamp'|t }}:</strong> {{ content.created }}</p>
+  </div>
+  <div class="links">
+    {{ content.links }}
+  </div>
+</div>

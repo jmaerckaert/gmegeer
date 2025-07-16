@@ -1,0 +1,7 @@
+name: 'Ethpillar Monitoring'
+type: module
+description: 'Provides EthpillarIncident entity to log and manage beacon node restarts.'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:system

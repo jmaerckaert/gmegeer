@@ -1,0 +1,3 @@
+administer ethpillar incidents:
+  title: 'Administer Ethpillar incidents'
+  description: 'Manage EthpillarIncident entities (add, edit, delete, view).'
