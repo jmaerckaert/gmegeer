@@ -6,47 +6,48 @@ namespace Drupal\failover_log\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Entity\EntityChangedTrait;
+use Drupal\Core\Entity\EntityPublishedTrait;
 
 /**
- * Définit l'entité Failover Log pour enregistrer les événements de basculement.
+ * Defines the Failover Log entity.
  *
  * @ContentEntityType(
  *   id = "failover_log",
  *   label = @Translation("Failover Log"),
- *   label_collection = @Translation("Failover Logs"),
- *   label_singular = @Translation("failover log"),
- *   label_plural = @Translation("failover logs"),
- *   label_count = @PluralTranslation(
- *     singular = "@count failover log",
- *     plural = "@count failover logs",
- *   ),
  *   handlers = {
+ *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
  *     "list_builder" = "Drupal\failover_log\FailoverLogListBuilder",
- *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "form" = {
- *       "default" = "Drupal\failover_log\Form\FailoverLogForm",
+ *       "add" = "Drupal\failover_log\Form\FailoverLogForm",
  *       "edit" = "Drupal\failover_log\Form\FailoverLogForm",
- *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm"
  *     },
+ *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
+ *     "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider"
+ *     }
  *   },
  *   base_table = "failover_log",
- *   admin_permission = "administer failover logs",
+ *   admin_permission = "access failover log overview",
  *   entity_keys = {
  *     "id" = "id",
  *     "uuid" = "uuid",
- *     "label" = "message",
+ *     "label" = "message"
  *   },
  *   links = {
- *     "canonical" = "/failover-log/{failover_log}",
- *     "edit-form" = "/failover-log/{failover_log}/edit",
- *     "delete-form" = "/failover-log/{failover_log}/delete",
- *     "collection" = "/admin/content/fai
-lver-logs",
+ *     "canonical" = "/admin/content/failover-log/{failover_log}",
+ *     "add-form" = "/admin/content/failover-log/add",
+ *     "edit-form" = "/admin/content/failover-log/{failover_log}/edit",
+ *     "delete-form" = "/admin/content/failover-log/{failover_log}/delete",
+ *     "collection" = "/admin/content/failover-logs"
  *   },
  * )
  */
-class FailoverLog extends ContentEntityBase {
+class FailoverLog extends ContentEntityBase implements ContentEntityInterface {
+    use EntityChangedTrait;
 
     /**
      * {@inheritdoc}
