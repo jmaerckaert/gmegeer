@@ -1,8 +1,7 @@
-ethpillar_monitoring.incident_post:
+ethpillar_monitoring.admin:
   path: '/ethpillar/incident'
-  methods: [POST]
   defaults:
-    _controller: '\Drupal\ethpillar_monitoring\Controller\EthpillarIncidentController::createIncident'
-    _title: 'Log Ethpillar Incident'
+    _entity_list: 'ethpillar_incident'
+    _title: 'Ethpillar incident'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer ethpillar incidents'
