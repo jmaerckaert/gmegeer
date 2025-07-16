@@ -1,5 +1,5 @@
 ethpillar_monitoring.admin:
-  path: '/ethpillar/incident'
+  path: '/admin/content/ethpillar'
   defaults:
     _entity_list: 'ethpillar_incident'
     _title: 'Ethpillar incident'
