@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Drupal\ethpillar_monitoring\Entity;
 
@@ -18,12 +18,12 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   admin_permission = "administer ethpillar incidents",
  *   handlers = {
  *     "list_builder" = "Drupal\\ethpillar_monitoring\\ListBuilder\\EthpillarIncidentListBuilder",
+ *     "view_builder" = "Drupal\\Core\\Entity\\EntityViewBuilder",
  *     "form" = {
  *       "add" = "Drupal\\ethpillar_monitoring\\Form\\EthpillarIncidentForm",
  *       "edit" = "Drupal\\ethpillar_monitoring\\Form\\EthpillarIncidentForm",
  *       "delete" = "Drupal\\Core\\Entity\\ContentEntityDeleteForm"
  *     }
- *     // <-- Suppression de la section "route_provider"
  *   },
  *   entity_keys = {
  *     "id" = "id",
@@ -40,6 +40,9 @@ use Drupal\Core\Field\BaseFieldDefinition;
  */
 class EthpillarIncident extends ContentEntityBase {
 
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
     $fields = parent::baseFieldDefinitions($entity_type);
 
