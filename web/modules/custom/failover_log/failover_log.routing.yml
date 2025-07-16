@@ -8,6 +8,6 @@ entity.failover_log.collection:
 entity.failover_log.edit_form:
   path: '/failover-log/{failover_log}/edit'
   defaults:
-    _form: '\Drupal\some_module\SomeForm'
+    _form: '\Drupal\failover_log\FailoverLogForm'
   requirements:
     _permission: 'administer failover logs'
