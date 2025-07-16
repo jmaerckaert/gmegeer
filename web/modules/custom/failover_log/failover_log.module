@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function failover_log_theme($existing, $type, $theme, $path) {
+  return [
+    'failover_log_form' => [
+      'render element' => 'form',
+      'template' => 'failover-log-form',
+    ],
+  ];
+}
