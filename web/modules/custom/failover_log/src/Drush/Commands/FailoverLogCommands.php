@@ -6,7 +6,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\failover_log\Entity\FailoverLog;
 use Drupal\Component\Datetime\TimeInterface;
 use Drush\Attributes as CLI;
-use Drush\Commands\AutowireTrait;
 use Drush\Commands\DrushCommands;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -14,8 +13,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Drush commands for the Failover Log module.
  */
 final class FailoverLogCommands extends DrushCommands {
-
-  use AutowireTrait;
 
   public function __construct(
     private readonly EntityTypeManagerInterface $entityTypeManager,
@@ -38,6 +35,7 @@ final class FailoverLogCommands extends DrushCommands {
   public function updateDurations(): void {
     $query = $this->entityTypeManager->getStorage('failover_log')->getQuery();
     $query->condition('duration', 'active');
+    $query->accessCheck(FALSE);
     $ids = $query->execute();
 
     if (empty($ids)) {
@@ -67,7 +65,9 @@ final class FailoverLogCommands extends DrushCommands {
   #[CLI\Command(name: 'failover_log:delete-all', aliases: ['fl-delete-all'])]
   public function deleteAll(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
-    $ids = $storage->getQuery()->execute();
+    $query = $storage->getQuery();
+    $query->accessCheck(FALSE);
+    $ids = $query->execute();
 
     if ($ids) {
       $storage->delete($storage->loadMultiple($ids));
@@ -84,7 +84,9 @@ final class FailoverLogCommands extends DrushCommands {
   #[CLI\Command(name: 'failover_log:delete-ko', aliases: ['fl-delete-ko'])]
   public function deleteKO(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
-    $ids = $storage->getQuery()->condition('status', 'KO')->execute();
+    $query = $storage->getQuery()->condition('status', 'KO');
+    $query->accessCheck(FALSE);
+    $ids = $query->execute();
 
     if ($ids) {
       $storage->delete($storage->loadMultiple($ids));
@@ -101,7 +103,9 @@ final class FailoverLogCommands extends DrushCommands {
   #[CLI\Command(name: 'failover_log:delete-ok', aliases: ['fl-delete-ok'])]
   public function deleteOK(): void {
     $storage = $this->entityTypeManager->getStorage('failover_log');
-    $ids = $storage->getQuery()->condition('status', 'OK')->execute();
+    $query = $storage->getQuery()->condition('status', 'OK');
+    $query->accessCheck(FALSE);
+    $ids = $query->execute();
 
     if ($ids) {
       $storage->delete($storage->loadMultiple($ids));
