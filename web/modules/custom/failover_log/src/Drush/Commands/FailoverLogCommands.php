@@ -49,8 +49,11 @@ final class FailoverLogCommands extends DrushCommands {
 
     foreach ($entities as $log) {
       assert($log instanceof FailoverLog);
-      $created = $log->getCreatedTime();
-      $elapsed = $now - $created;
+      $created = $log->get('created')->value;
+      if ($created === NULL) {
+        continue;
+      }
+      $elapsed = $now - (int) $created;
       $minutes = (int) round($elapsed / 60);
       $log->set('duration', $minutes . ' min');
       $log->save();
