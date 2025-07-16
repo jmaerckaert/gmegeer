@@ -25,8 +25,8 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *     "list_builder" = "Drupal\failover_log\FailoverLogListBuilder",
  *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "form" = {
- *       "default" = "Drupal\Core\Entity\ContentEntityForm",
- *       "edit" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "default" = "Drupal\failover_log\Form\FailoverLogForm",
+ *       "edit" = "Drupal\failover_log\Form\FailoverLogForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
  *     },
  *   },
@@ -41,7 +41,8 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *     "canonical" = "/failover-log/{failover_log}",
  *     "edit-form" = "/failover-log/{failover_log}/edit",
  *     "delete-form" = "/failover-log/{failover_log}/delete",
- *     "collection" = "/admin/content/failover-logs",
+ *     "collection" = "/admin/content/fai
+lver-logs",
  *   },
  * )
  */
@@ -53,7 +54,6 @@ class FailoverLog extends ContentEntityBase {
     public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
         $fields = parent::baseFieldDefinitions($entity_type);
 
-        // Champ pour le message de l'événement.
         $fields['message'] = BaseFieldDefinition::create('string_long')
             ->setLabel(t('Message'))
             ->setDescription(t('Le message détaillant l’événement de basculement.'))
@@ -70,7 +70,6 @@ class FailoverLog extends ContentEntityBase {
             ->setDisplayConfigurable('view', TRUE)
             ->setDisplayConfigurable('form', TRUE);
 
-        // Champ pour le nom technique de l'interface.
         $fields['interface'] = BaseFieldDefinition::create('string')
             ->setLabel(t('Interface'))
             ->setDescription(t('Le nom technique de l’interface concernée.'))
@@ -87,7 +86,6 @@ class FailoverLog extends ContentEntityBase {
             ->setDisplayConfigurable('view', TRUE)
             ->setDisplayConfigurable('form', TRUE);
 
-        // Champ pour le nom lisible de l'interface.
         $fields['interface_label'] = BaseFieldDefinition::create('string')
             ->setLabel(t('Libellé de l’interface'))
             ->setDescription(t('Le nom convivial de l’interface.'))
@@ -104,7 +102,6 @@ class FailoverLog extends ContentEntityBase {
             ->setDisplayConfigurable('view', TRUE)
             ->setDisplayConfigurable('form', TRUE);
 
-        // Champ pour le statut de l'événement.
         $fields['status'] = BaseFieldDefinition::create('string')
             ->setLabel(t('Statut'))
             ->setDescription(t('Le statut de l’événement (ex. succès, échec).'))
@@ -121,10 +118,9 @@ class FailoverLog extends ContentEntityBase {
             ->setDisplayConfigurable('view', TRUE)
             ->setDisplayConfigurable('form', TRUE);
 
-        // Champ pour la durée de l'événement.
         $fields['duration'] = BaseFieldDefinition::create('integer')
             ->setLabel(t('Durée'))
-            ->setDescription(t('La durée de l’événement en millisecondes.'))
+            ->setDescription(t('La durée de l’événement en minutes.'))
             ->setRequired(FALSE)
             ->setDisplayOptions('view', [
                 'label' => 'above',
@@ -138,7 +134,6 @@ class FailoverLog extends ContentEntityBase {
             ->setDisplayConfigurable('view', TRUE)
             ->setDisplayConfigurable('form', TRUE);
 
-        // Champ pour la date de création.
         $fields['created'] = BaseFieldDefinition::create('created')
             ->setLabel(t('Créé le'))
             ->setDescription(t('La date de création de l’entrée.'))
