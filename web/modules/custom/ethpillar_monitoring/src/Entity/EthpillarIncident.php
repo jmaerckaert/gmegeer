@@ -17,12 +17,12 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   base_table = "ethpillar_incident",
  *   admin_permission = "administer ethpillar incidents",
  *   handlers = {
- *     "list_builder" = "Drupal\\ethpillar_monitoring\\ListBuilder\\EthpillarIncidentListBuilder",
- *     "view_builder" = "Drupal\\Core\\Entity\\EntityViewBuilder",
+ *     "list_builder" = "Drupal\ethpillar_monitoring\EthpillarIncidentListBuilder",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "form" = {
- *       "add" = "Drupal\\ethpillar_monitoring\\Form\\EthpillarIncidentForm",
- *       "edit" = "Drupal\\ethpillar_monitoring\\Form\\EthpillarIncidentForm",
- *       "delete" = "Drupal\\Core\\Entity\\ContentEntityDeleteForm"
+ *       "add" = "Drupal\ethpillar_monitoring\Form\EthpillarIncidentForm",
+ *       "edit" = "Drupal\ethpillar_monitoring\Form\EthpillarIncidentForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm"
  *     }
  *   },
  *   entity_keys = {
