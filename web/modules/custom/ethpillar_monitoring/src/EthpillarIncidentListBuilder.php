@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\ethpillar_monitoring\ListBuilder;
+namespace Drupal\ethpillar_monitoring;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
