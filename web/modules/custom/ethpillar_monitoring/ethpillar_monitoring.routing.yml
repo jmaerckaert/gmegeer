@@ -1,7 +1,7 @@
-ethpillar_monitoring.admin:
-  path: '/admin/content/ethpillar'
+ethpillar_monitoring.list:
+  path: '/admin/content/ethpillar_incident'
   defaults:
     _entity_list: 'ethpillar_incident'
-    _title: 'Ethpillar incident'
+    _title: 'Incidents Ethpillar'
   requirements:
     _permission: 'administer ethpillar incidents'

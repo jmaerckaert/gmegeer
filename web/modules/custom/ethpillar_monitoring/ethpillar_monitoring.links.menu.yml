@@ -1,8 +1,6 @@
-ethpillar_monitoring.ethpillar_incident_collection:
-  title: 'Ethpillar incidents'
-  description: 'List all Ethpillar incidents.'
-  route_name: entity.ethpillar_incident.collection
+ethpillar_monitoring.admin:
+  title: 'Incidents Ethpillar'
+  description: 'Gérer les incidents Ethpillar'
+  route_name: ethpillar_monitoring.list
   parent: system.admin_content
-  menu_name: admin
-  weight: 100
-
+  weight: 10

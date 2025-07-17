@@ -31,10 +31,10 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   },
  *   links = {
  *     "canonical" = "/admin/ethpillar_incident/{ethpillar_incident}",
- *     "collection" = "/admin/ethpillar_incident",
- *     "add-form" = "/admin/ethpillar_incident/add",
- *     "edit-form" = "/admin/ethpillar_incident/{ethpillar_incident}/edit",
- *     "delete-form" = "/admin/ethpillar_incident/{ethpillar_incident}/delete"
+ *     "collection" = "/admin/content/ethpillar_incident",
+ *     "add-form" = "/admin/content/ethpillar_incident/add",
+ *     "edit-form" = "/admin/content/ethpillar_incident/{ethpillar_incident}/edit",
+ *     "delete-form" = "/admin/content/ethpillar_incident/{ethpillar_incident}/delete"
  *   }
  * )
  */
@@ -49,12 +49,28 @@ class EthpillarIncident extends ContentEntityBase {
     $fields['hostname'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Hostname'))
       ->setRequired(TRUE)
-      ->setSettings(['max_length' => 255]);
+      ->setSettings(['max_length' => 255])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -10,
+      ])
+      ->setDisplayConfigurable('form', TRUE);
 
-    $fields['status'] = BaseFieldDefinition::create('string')
+    $fields['status'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('Status'))
       ->setRequired(TRUE)
-      ->setSettings(['max_length' => 50]);
+      ->setSettings([
+        'allowed_values' => [
+          'active' => 'Active',
+          'inactive' => 'Inactive',
+          // Ajouter d'autres états si nécessaire
+        ],
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+        'weight' => -5,
+      ])
+      ->setDisplayConfigurable('form', TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Timestamp'));
